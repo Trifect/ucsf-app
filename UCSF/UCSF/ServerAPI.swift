@@ -10,3 +10,4 @@ import Foundation
 
 
 //mock up server
+//send info to data.json
