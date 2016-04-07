@@ -15,10 +15,10 @@ let hospitalKey = "hospital"
 let plist = Plist(name: "data")
 
 
-class ViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, PassBackDelegate {
     
     // MARK: properties
-
+    
     @IBOutlet weak var hospitalButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var traineeName: UITextField!
@@ -90,8 +90,9 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showView" {
-            let vc = segue.destinationViewController
-            let controller = vc.popoverPresentationController
+            let destination = segue.destinationViewController as! HospitalPopoverViewController
+            let controller = destination.popoverPresentationController
+            destination.passBackDelegate = self
             
             // Sets the coordinates of the popover arrow so that it points to the middle of the anchor view.
             segue.destinationViewController.popoverPresentationController?.sourceRect = CGRectMake(hospitalButton.frame.size.width/2, 0, 0, 0)
@@ -104,6 +105,11 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
+    }
+    
+    
+    func sendString(myString: String) {
+        hospital.text = myString
     }
     
 }
