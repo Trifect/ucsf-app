@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PassBackDelegate {
+    func sendString(myString:String)
+}
+
 class HospitalPopoverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: properties
@@ -15,6 +19,8 @@ class HospitalPopoverViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableView: UITableView!
     
     var hospitalNames = ["SFGH", "Parnassus", "VA"]
+    
+    var passBackDelegate: PassBackDelegate! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,11 @@ class HospitalPopoverViewController: UIViewController, UITableViewDelegate, UITa
         cell.hospitalName.text = hospitalNames[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let returnString = hospitalNames[indexPath.row]
+        passBackDelegate.sendString(returnString)
     }
     
     // MARK: actions
