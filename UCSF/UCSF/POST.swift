@@ -10,8 +10,46 @@ import Foundation
 
 //send post to serverapi.swift
 
+//possibly create a function for reading from plist to have exception handling
+
+func readPlist() -> NSDictionary {
+    var plistdata: NSDictionary?
+    if let path = NSBundle.mainBundle().pathForResource("data", ofType: "plist") {
+        plistdata = NSDictionary(contentsOfFile: path)
+    }
+    return plistdata!
+}
+
+func selectHospital(hospital: String) -> Int {
+    var hospitalVal = 0
+    let plistdata = readPlist()
+    if let hospital = plistdata.valueForKey("hospital") as? String {
+    
+        if (hospital == "SFGH") {
+            hospitalVal = 1
+        }
+        else if (hospital == "Parnassus") {
+            hospitalVal = 2
+        }
+        else if (hospital == "VA") {
+            hospitalVal = 3
+        }
+    }
+    return hospitalVal
+}
+
 func makePOST() -> NSString {
-    let objectJSON: Dictionary<String, NSObject> = ["SM":NSNull(), "ED":NSNull(), "FormRuntime": NSNull(), "FormSessionID":"FS_10vEVOCdpkg6qJH", "Questions":["QID2":["Value":"Tester"],"QID3":["Value":"9999"],"QID1":["Selected":"2"]]]
+    let plistdata = readPlist()
+    var hospitalVal = 0
+    if let hospital = plistdata.valueForKey("hospital") as? String {
+        hospitalVal = selectHospital(hospital)
+    }
+    
+    let trainee = plistdata.valueForKey("traineeName") as? String
+    let caseID = plistdata.valueForKey("caseID") as? String
+    
+    let objectJSON: Dictionary<String, NSObject> = ["SM":NSNull(), "ED":NSNull(), "FormRuntime": NSNull(), "FormSessionID":"FS_10vEVOCdpkg6qJH", "Questions":["QID2":["Value":trainee!],"QID3":["Value":caseID!],"QID1":["Selected":hospitalVal]]]
+    
     var readableJSONdata: NSString = ""
     if NSJSONSerialization.isValidJSONObject(objectJSON) {
         do {
