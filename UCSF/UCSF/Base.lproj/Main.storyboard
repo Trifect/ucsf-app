@@ -245,7 +245,7 @@
                                                         <constraint firstAttribute="width" constant="150" id="X1d-Pk-OCk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -298,8 +298,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SHX-Np-IU1">
-                                <rect key="frame" x="0.0" y="141" width="600" height="459"/>
+                                <rect key="frame" x="0.0" y="141" width="600" height="419"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.0" green="0.48627450979999998" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="iCell" id="MAZ-Gm-Nlj" customClass="instructorCell" customModule="UCSF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -314,7 +315,7 @@
                                                         <constraint firstAttribute="width" constant="400" id="W9b-7g-Ybg"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -323,6 +324,7 @@
                                                 <constraint firstItem="w4m-2b-mMF" firstAttribute="leading" secondItem="gHv-M3-5gN" secondAttribute="leadingMargin" constant="10" id="hL3-KW-LDu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.48627450979999998" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="instructorName" destination="w4m-2b-mMF" id="z2R-Xb-EB8"/>
                                         </connections>
@@ -339,11 +341,11 @@
                                     <constraint firstAttribute="width" constant="200" id="iPG-tH-0Hv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.48627450979999998" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Wlr-k8-QvH" firstAttribute="top" secondItem="5He-gn-mLz" secondAttribute="bottom" constant="80" id="FGl-b6-8lk"/>
                             <constraint firstItem="SHX-Np-IU1" firstAttribute="top" secondItem="Wlr-k8-QvH" secondAttribute="bottom" constant="20" id="Lzz-d8-QO5"/>
@@ -351,11 +353,12 @@
                             <constraint firstItem="SHX-Np-IU1" firstAttribute="leading" secondItem="cXQ-iL-vGT" secondAttribute="leading" id="dAA-V3-J60"/>
                             <constraint firstItem="Wlr-k8-QvH" firstAttribute="centerX" secondItem="cXQ-iL-vGT" secondAttribute="centerX" id="vvp-m3-Ng8"/>
                             <constraint firstItem="SHX-Np-IU1" firstAttribute="centerX" secondItem="cXQ-iL-vGT" secondAttribute="centerX" id="w42-vL-b62"/>
-                            <constraint firstItem="AQb-SV-hR0" firstAttribute="top" secondItem="SHX-Np-IU1" secondAttribute="bottom" id="z0Y-BO-6I8"/>
+                            <constraint firstItem="AQb-SV-hR0" firstAttribute="top" secondItem="SHX-Np-IU1" secondAttribute="bottom" constant="40" id="z0Y-BO-6I8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="instructorTableView" destination="SHX-Np-IU1" id="QbC-ad-Dsg"/>
+                        <outlet property="tableView" destination="SHX-Np-IU1" id="dLQ-Fv-cqf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ls1-dx-5zJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
