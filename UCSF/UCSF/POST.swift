@@ -20,7 +20,7 @@ func readPlist() -> NSDictionary {
     return plistdata!
 }
 
-func selectHospital(hospital: String) -> Int {
+func selectHospital(hospital: String) -> Int { //have rob make hospital in plist [Int]
     var hospitalVal = 0
     let plistdata = readPlist()
     if let hospital = plistdata.valueForKey("hospital") as? String {
