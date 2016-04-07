@@ -19,4 +19,10 @@ class instructorCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    // SETTING BACKGROUND COLOR
+    
+    //        UIView *lab = [[UIView alloc] initWithFrame:cell.frame];
+    //        [lab setBackgroundColor:[UIColor blueColor]];
+    
 }
