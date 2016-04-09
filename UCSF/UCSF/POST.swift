@@ -14,7 +14,7 @@ import Foundation
 
 func readPlist() -> NSDictionary {
     var plistdata: NSDictionary?
-    if let path = NSBundle.mainBundle().pathForResource("data", ofType: "plist") {
+    if let path = NSBundle.mainBundle().pathForResource("clientData", ofType: "plist") {
         plistdata = NSDictionary(contentsOfFile: path)
     }
     return plistdata!
@@ -38,7 +38,7 @@ func selectHospital(hospital: String) -> Int { //have rob make hospital in plist
     return hospitalVal
 }
 
-func makePOST() -> NSString {
+func makePOST() -> NSString { //during submission
     let plistdata = readPlist()
     var hospitalVal = 0
     if let hospital = plistdata.valueForKey("hospital") as? String {
@@ -61,4 +61,8 @@ func makePOST() -> NSString {
         }
     }
     return readableJSONdata
+}
+
+func accessAccount() {
+    //implement function for mock login authentication
 }
