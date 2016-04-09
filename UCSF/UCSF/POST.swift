@@ -14,7 +14,7 @@ import Foundation
 
 func readPlist() -> NSDictionary {
     var plistdata: NSDictionary?
-    if let path = NSBundle.mainBundle().pathForResource("data", ofType: "plist") {
+    if let path = NSBundle.mainBundle().pathForResource("clientData", ofType: "plist") {
         plistdata = NSDictionary(contentsOfFile: path)
     }
     return plistdata!

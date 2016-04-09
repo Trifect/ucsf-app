@@ -10,7 +10,7 @@ import Foundation
 
 //get json object from serverapi.swift
 
-let url = NSBundle.mainBundle().URLForResource("data", withExtension: "json")
+let url = NSBundle.mainBundle().URLForResource("serverData", withExtension: "json")
 let data = NSData(contentsOfURL: url!)
 
 func response() {
