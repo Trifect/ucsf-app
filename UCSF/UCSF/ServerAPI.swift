@@ -44,8 +44,9 @@ class MockServer { //all the clientside vars should be optionals???
     
     //clientside
     var users: [String] = []
-    var sessionIDs: [String: [String]] = [:] //have keys be users and store each session id under users
+    var userpw: [String: String] = [:] // keys users: value pw
     
+    var sessionIDs: [String: [String]] = [:] //have keys be users and store each session id under users
     var caseIDs: [String: String] = [:] //have keys be sessionID and store each caseID as part of list
     var procedure: [String: Int] = [:] //have keys be caseID -> link to procedureList
     var procedureDate: [String: String] = [:] //have keys be caseID
@@ -104,7 +105,7 @@ class MockServer { //all the clientside vars should be optionals???
         //parse into users, userIDs and hospitals
     }
     
-    func reply() {
+    func reply() { //have inputs be var names to retrieve those ie to get a reply for list of hospitals do func reply(var: hospitals) -> return hospitals
         //write and save to data.json
     }
 }
