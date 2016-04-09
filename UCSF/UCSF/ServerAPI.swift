@@ -92,7 +92,7 @@ class MockServer { //all the clientside vars should be optionals???
                                       "Dilation", "pH-Bravo"]
     
     func setHospitals(hospitalList: [String]) {
-        self.hospitals = hospitalList
+        self.hospitalList = hospitalList
     }
     
     func setInstructors(sfList: [String], parnList: [String], vaList: [String]) {
