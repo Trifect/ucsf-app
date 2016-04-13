@@ -22,8 +22,11 @@
 		9D1712721CB101AC00F5BCE7 /* HospitalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1712711CB101AC00F5BCE7 /* HospitalCell.swift */; };
 		E1A902A21CB3375600208610 /* instructorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A902A11CB3375600208610 /* instructorCell.swift */; };
 		E1A902A41CB3394600208610 /* InstructorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A902A31CB3394600208610 /* InstructorViewController.swift */; };
+		E1AEA5371CB6E64E00CFD75B /* ProcedurePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AEA5361CB6E64E00CFD75B /* ProcedurePopoverViewController.swift */; };
+		E1AEA53B1CB6EB4000CFD75B /* ProcedureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AEA53A1CB6EB4000CFD75B /* ProcedureCell.swift */; };
 		E1C6DF0B1CB2E24B00B2576F /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1C6DF0A1CB2E24B00B2576F /* data.plist */; };
 		E1C6DF0D1CB2E68700B2576F /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C6DF0C1CB2E68700B2576F /* Plist.swift */; };
+		E1DE34431CB6D8C60030BB7E /* ProcedureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DE34421CB6D8C60030BB7E /* ProcedureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +47,11 @@
 		9D1712711CB101AC00F5BCE7 /* HospitalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalCell.swift; sourceTree = "<group>"; };
 		E1A902A11CB3375600208610 /* instructorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = instructorCell.swift; sourceTree = "<group>"; };
 		E1A902A31CB3394600208610 /* InstructorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorViewController.swift; sourceTree = "<group>"; };
+		E1AEA5361CB6E64E00CFD75B /* ProcedurePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedurePopoverViewController.swift; sourceTree = "<group>"; };
+		E1AEA53A1CB6EB4000CFD75B /* ProcedureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedureCell.swift; sourceTree = "<group>"; };
 		E1C6DF0A1CB2E24B00B2576F /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		E1C6DF0C1CB2E68700B2576F /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
+		E1DE34421CB6D8C60030BB7E /* ProcedureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +90,12 @@
 				9D17125B1CACAB4900F5BCE7 /* ViewController.swift */,
 				9D17126D1CAFBCB100F5BCE7 /* HomeScreenViewController.swift */,
 				E1A902A31CB3394600208610 /* InstructorViewController.swift */,
-				9D17125D1CACAB4900F5BCE7 /* Main.storyboard */,
+				E1DE34421CB6D8C60030BB7E /* ProcedureViewController.swift */,
+				E1AEA5361CB6E64E00CFD75B /* ProcedurePopoverViewController.swift */,
+				E1AEA53A1CB6EB4000CFD75B /* ProcedureCell.swift */,
 				9D1712711CB101AC00F5BCE7 /* HospitalCell.swift */,
 				9D17126F1CB083C000F5BCE7 /* HospitalPopoverViewController.swift */,
+				9D17125D1CACAB4900F5BCE7 /* Main.storyboard */,
 				9D1712601CACAB4900F5BCE7 /* Assets.xcassets */,
 				9D1712621CACAB4900F5BCE7 /* LaunchScreen.storyboard */,
 				9D1712651CACAB4900F5BCE7 /* Info.plist */,
@@ -177,12 +186,15 @@
 				E1C6DF0D1CB2E68700B2576F /* Plist.swift in Sources */,
 				E1A902A21CB3375600208610 /* instructorCell.swift in Sources */,
 				9D1712701CB083C000F5BCE7 /* HospitalPopoverViewController.swift in Sources */,
+				E1AEA5371CB6E64E00CFD75B /* ProcedurePopoverViewController.swift in Sources */,
 				9D17125C1CACAB4900F5BCE7 /* ViewController.swift in Sources */,
 				9D17125A1CACAB4900F5BCE7 /* AppDelegate.swift in Sources */,
 				63E53D9F1CB5A2B300169B75 /* POST.swift in Sources */,
 				E1A902A41CB3394600208610 /* InstructorViewController.swift in Sources */,
 				63E53DA31CB5A3C900169B75 /* ResponseAPI.swift in Sources */,
+				E1DE34431CB6D8C60030BB7E /* ProcedureViewController.swift in Sources */,
 				9D1712721CB101AC00F5BCE7 /* HospitalCell.swift in Sources */,
+				E1AEA53B1CB6EB4000CFD75B /* ProcedureCell.swift in Sources */,
 				63E53D9D1CB5A24A00169B75 /* ServerAPI.swift in Sources */,
 				9D17126E1CAFBCB100F5BCE7 /* HomeScreenViewController.swift in Sources */,
 			);
