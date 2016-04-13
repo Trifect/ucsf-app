@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Xm5-yW-iWO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Xm5-yW-iWO">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -285,6 +285,82 @@
             </objects>
             <point key="canvasLocation" x="947" y="-206"/>
         </scene>
+        <!--Procedure Popover View Controller-->
+        <scene sceneID="bhT-B0-0hd">
+            <objects>
+                <viewController id="Smh-J8-W51" customClass="ProcedurePopoverViewController" customModule="UCSF" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vMa-8s-c77"/>
+                        <viewControllerLayoutGuide type="bottom" id="vB1-oO-KF3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C4W-6g-fho">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="140"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HBg-rq-A2M">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pCell" id="6nq-Hc-XbJ" customClass="ProcedureCell" customModule="UCSF" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="200" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6nq-Hc-XbJ" id="oON-0O-dTZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYh-lu-DcD" userLabel="Procedure Name">
+                                                    <rect key="frame" x="25" y="11" width="150" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="lDM-EN-uvm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cYh-lu-DcD" firstAttribute="centerX" secondItem="oON-0O-dTZ" secondAttribute="centerX" id="SAo-SE-v0n"/>
+                                                <constraint firstItem="cYh-lu-DcD" firstAttribute="centerY" secondItem="oON-0O-dTZ" secondAttribute="centerY" id="ecz-wE-ydN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="procedureName" destination="cYh-lu-DcD" id="yni-B3-JQE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Smh-J8-W51" id="fdH-g8-58b"/>
+                                    <outlet property="delegate" destination="Smh-J8-W51" id="fV9-DZ-SaJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HBg-rq-A2M" firstAttribute="top" secondItem="C4W-6g-fho" secondAttribute="top" id="29c-qv-4Fd"/>
+                            <constraint firstAttribute="bottom" secondItem="HBg-rq-A2M" secondAttribute="bottom" id="4Xs-Wy-iJ4"/>
+                            <constraint firstAttribute="trailing" secondItem="HBg-rq-A2M" secondAttribute="trailing" id="DdH-7B-8Os"/>
+                            <constraint firstItem="HBg-rq-A2M" firstAttribute="top" secondItem="C4W-6g-fho" secondAttribute="top" id="cnz-Fz-fZD"/>
+                            <constraint firstItem="HBg-rq-A2M" firstAttribute="leading" secondItem="C4W-6g-fho" secondAttribute="leading" id="hMn-pI-riP"/>
+                            <constraint firstItem="vB1-oO-KF3" firstAttribute="top" secondItem="HBg-rq-A2M" secondAttribute="bottom" id="lzB-7w-TJv"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="29c-qv-4Fd"/>
+                                <exclude reference="lzB-7w-TJv"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="140"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="200" height="140"/>
+                    <connections>
+                        <outlet property="procedureTableView" destination="HBg-rq-A2M" id="Kr8-13-Waw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAV-Kz-KT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2705" y="-232"/>
+        </scene>
         <!--Instructor View Controller-->
         <scene sceneID="zLF-QX-mUF">
             <objects>
@@ -344,6 +420,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRH-4b-YBD">
+                                <rect key="frame" x="211" y="562" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="crm-2p-fi7" kind="showDetail" id="KgM-Bx-ifC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.48627450979999998" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -364,6 +449,107 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ls1-dx-5zJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1376" y="161"/>
+        </scene>
+        <!--Procedure View Controller-->
+        <scene sceneID="I2d-GN-Sx9">
+            <objects>
+                <viewController id="crm-2p-fi7" userLabel="Procedure View Controller" customClass="ProcedureViewController" customModule="UCSF" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kyt-CF-LGO"/>
+                        <viewControllerLayoutGuide type="bottom" id="tBe-nr-O1B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wWg-B9-8Sf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Procedure" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LXH-Co-Xg2">
+                                <rect key="frame" x="200" y="135" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.46666666670000001" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="ewb-8H-neJ"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="popOver:" destination="crm-2p-fi7" eventType="touchUpInside" id="ENs-mn-row"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfA-8e-YVE">
+                                <rect key="frame" x="200" y="100" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.46666666670000001" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="2U4-1R-bjP"/>
+                                </constraints>
+                                <state key="normal" title="Select Procedure">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Smh-J8-W51" kind="popoverPresentation" identifier="showView2" popoverAnchorView="QfA-8e-YVE" id="vmM-0n-4kK">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6G-Ne-8zw">
+                                <rect key="frame" x="200" y="433" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.46666666670000001" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Qqs-a5-S6F"/>
+                                </constraints>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButton:" destination="crm-2p-fi7" eventType="touchUpInside" id="T3V-OA-sKw"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UDG-YB-qTV">
+                                <rect key="frame" x="140" y="191" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="482271609.01816601">
+                                    <!--2016-04-13 20:20:09 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.48627450979999998" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="LXH-Co-Xg2" firstAttribute="top" secondItem="Kyt-CF-LGO" secondAttribute="bottom" constant="80" id="24m-cs-w5L"/>
+                            <constraint firstItem="x6G-Ne-8zw" firstAttribute="top" secondItem="LXH-Co-Xg2" secondAttribute="bottom" constant="200" id="73c-bk-qn5"/>
+                            <constraint firstItem="UDG-YB-qTV" firstAttribute="top" secondItem="LXH-Co-Xg2" secondAttribute="bottom" constant="26" id="EM1-sd-Pze"/>
+                            <constraint firstItem="x6G-Ne-8zw" firstAttribute="top" secondItem="LXH-Co-Xg2" secondAttribute="bottom" constant="300" id="Hlq-0K-hJR"/>
+                            <constraint firstItem="UDG-YB-qTV" firstAttribute="top" secondItem="LXH-Co-Xg2" secondAttribute="bottom" constant="26" id="MKX-qb-InG"/>
+                            <constraint firstItem="x6G-Ne-8zw" firstAttribute="top" secondItem="UDG-YB-qTV" secondAttribute="bottom" constant="26" id="Npv-La-AP6"/>
+                            <constraint firstItem="LXH-Co-Xg2" firstAttribute="top" secondItem="QfA-8e-YVE" secondAttribute="bottom" constant="5" id="Pxe-jQ-1Hs"/>
+                            <constraint firstItem="x6G-Ne-8zw" firstAttribute="centerX" secondItem="wWg-B9-8Sf" secondAttribute="centerX" id="RRz-Dz-iWr"/>
+                            <constraint firstItem="x6G-Ne-8zw" firstAttribute="centerX" secondItem="wWg-B9-8Sf" secondAttribute="centerX" id="V1i-kg-cuU"/>
+                            <constraint firstItem="UDG-YB-qTV" firstAttribute="centerX" secondItem="wWg-B9-8Sf" secondAttribute="centerX" id="bAT-JU-tVo"/>
+                            <constraint firstItem="x6G-Ne-8zw" firstAttribute="top" secondItem="UDG-YB-qTV" secondAttribute="bottom" constant="26" id="bot-6G-Pr0"/>
+                            <constraint firstItem="QfA-8e-YVE" firstAttribute="top" secondItem="Kyt-CF-LGO" secondAttribute="bottom" constant="80" id="doq-RR-e3K"/>
+                            <constraint firstItem="x6G-Ne-8zw" firstAttribute="top" secondItem="LXH-Co-Xg2" secondAttribute="bottom" constant="200" id="gpj-Qg-1PK"/>
+                            <constraint firstItem="QfA-8e-YVE" firstAttribute="centerX" secondItem="wWg-B9-8Sf" secondAttribute="centerX" id="mHq-uf-gaG"/>
+                            <constraint firstItem="LXH-Co-Xg2" firstAttribute="centerX" secondItem="wWg-B9-8Sf" secondAttribute="centerX" id="slG-AW-KRR"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="24m-cs-w5L"/>
+                                <exclude reference="MKX-qb-InG"/>
+                                <exclude reference="73c-bk-qn5"/>
+                                <exclude reference="Hlq-0K-hJR"/>
+                                <exclude reference="V1i-kg-cuU"/>
+                                <exclude reference="bot-6G-Pr0"/>
+                                <exclude reference="gpj-Qg-1PK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="UDG-YB-qTV" id="6ZR-y6-my4"/>
+                        <outlet property="nextButton" destination="x6G-Ne-8zw" id="52m-9Y-HfP"/>
+                        <outlet property="procedureButton" destination="QfA-8e-YVE" id="c8T-Sa-diP"/>
+                        <outlet property="procedureName" destination="LXH-Co-Xg2" id="WU8-Kx-LLg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qfd-Gn-kXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2187" y="112"/>
         </scene>
     </scenes>
     <resources>
