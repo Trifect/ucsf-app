@@ -2,26 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-<<<<<<< HEAD
 	<key>instructor</key>
-=======
-	<key>instructorName</key>
->>>>>>> d6d3e20e468dd90a18f38494090947a65a20d53f
 	<integer>0</integer>
 	<key>traineeName</key>
 	<string></string>
 	<key>caseID</key>
 	<string></string>
 	<key>procedure</key>
-<<<<<<< HEAD
 	<integer>0</integer>
 	<key>procedureDate</key>
 	<string></string>
-=======
-	<string></string>
-	<key>procedureDate</key>
-	<string></string>
->>>>>>> d6d3e20e468dd90a18f38494090947a65a20d53f
 	<key>hospital</key>
 	<integer>0</integer>
 </dict>
