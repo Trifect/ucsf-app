@@ -3,12 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>instructorName</key>
-	<string></string>
+	<integer>0</integer>
 	<key>traineeName</key>
 	<string></string>
 	<key>caseID</key>
 	<string></string>
-	<key>hospital</key>
+	<key>procedure</key>
 	<string></string>
+	<key>procedureDate</key>
+	<string></string>
+	<key>hospital</key>
+	<integer>0</integer>
 </dict>
 </plist>

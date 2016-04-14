@@ -13,6 +13,7 @@ let caseIDKey = "caseID"
 let hospitalKey = "hospital"
 
 let plist = Plist(name: "data")
+let dict = plist!.getMutablePlistFile()!
 
 
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, PassBackDelegate {
@@ -32,10 +33,14 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         if (plist != nil) {
             //2 Get the mutable version of the file. Here we are force unwrapping the file. In production you should make sure this will not error. After we get our mutable dictionary, we can add a new value to it. Using our keys, we add a value to the NSMutableDictionary.
             
-            let dict = plist!.getMutablePlistFile()!
             dict[traineeNameKey] = traineeName.text!
             dict[caseIDKey] = caseID.text!
-            dict[hospitalKey] = hospital.text!
+            
+            if hospitalNames.indexOf(hospital.text!) != nil {
+                dict[hospitalKey] = hospitalNames.indexOf(hospital.text!)!+1
+            } else {
+                dict[hospitalKey] = 0
+            }
             
             //3 Next we’re going to write the new value to the plist. We have to wrap this in our do-try-catch.
             do {
@@ -50,7 +55,6 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         else {
             print("Unable to get Plist")
         }
-
     }
    
     override func viewDidLoad() {
@@ -91,7 +95,6 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         
     }
     // MARK: actions
-    
     
     @IBAction func popOver(sender: AnyObject) {
         self.performSegueWithIdentifier("showView", sender: self)
