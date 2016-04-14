@@ -8,6 +8,8 @@
 
 import UIKit
 
+var hospitalNames = ["SFGH", "Parnassus", "VA"]
+
 protocol PassBackDelegate {
     func sendString(myString:String)
 }
@@ -17,8 +19,6 @@ class HospitalPopoverViewController: UIViewController, UITableViewDelegate, UITa
     // MARK: properties
     
     @IBOutlet weak var tableView: UITableView!
-    
-    var hospitalNames = ["SFGH", "Parnassus", "VA"]
     
     var passBackDelegate: PassBackDelegate! = nil
     

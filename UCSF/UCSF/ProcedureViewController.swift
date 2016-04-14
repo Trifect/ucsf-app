@@ -8,19 +8,63 @@
 
 import UIKit
 
+let procedureKey = "procedure"
+let procedureDateKey = "procedureDate"
+
 class ProcedureViewController: UIViewController, UIPopoverPresentationControllerDelegate, PassBackDelegate {
     
     @IBOutlet weak var procedureButton: UIButton!
 
     @IBAction func nextButton(sender: AnyObject) {
+        
+        if (plist != nil) {
+            let dict = plist!.getMutablePlistFile()!
+            dict[procedureDateKey] = dateTextField.text!
+            dict[procedureKey] = procedureName.text!
+            
+            //3 Next we’re going to write the new value to the plist. We have to wrap this in our do-try-catch.
+            do {
+                try plist!.addValuesToPlistFile(dict)
+            } catch {
+                print(error)
+            }
+            //4 Finally, print the values of the plist file. We’re grabbing a fresh copy of the plist file so you can see that the changes have been applied.
+            
+            print(plist!.getValuesInPlistFile())
+        }
+        else {
+            print("Unable to get Plist")
+        }
+        
     }
     
     @IBOutlet weak var nextButton: UIButton!
     
     @IBOutlet weak var procedureName: UITextField!
     
+    @IBOutlet weak var dateTextField: UITextField!
     
-    @IBOutlet weak var datePicker: UIDatePicker!
+   
+    @IBAction func textFieldEditing(sender: UITextField) {
+        
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.Date
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(ProcedureViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
+    }
+    
+    func datePickerValueChanged(sender:UIDatePicker) {
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        
+        dateTextField.text = dateFormatter.stringFromDate(sender.date)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +79,10 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
         // Sets the placeholder text color to white.
         procedureName.attributedPlaceholder = NSAttributedString(string: "Procedure", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
         
+        dateTextField.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
-        datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-        
-        datePicker.datePickerMode = .CountDownTimer
-        datePicker.datePickerMode = .Date
         
 
         // Do any additional setup after loading the view.
