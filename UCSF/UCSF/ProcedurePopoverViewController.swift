@@ -8,12 +8,12 @@
 
 import UIKit
 
+var procedureNames = ["Colonoscopy", "EGD"]
+
 class ProcedurePopoverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet weak var procedureTableView: UITableView!
-    
-    var procedureNames = ["Colonoscopy", "EGD"]
     
     var passBackDelegate: PassBackDelegate! = nil
 

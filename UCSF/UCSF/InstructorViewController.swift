@@ -8,7 +8,7 @@
 
 import UIKit
 
-let instructorNameKey = "instructorName"
+let instructorNameKey = "instructor"
 var instructorListSFGH = ["Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
 var instructorListParnassus = ["Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
 var instructorListVA = ["Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
@@ -67,7 +67,8 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
         if (plist != nil) {
             
             let dict = plist!.getMutablePlistFile()!
-            dict[instructorNameKey] = allInstructors.indexOf(instructorName)
+            
+            dict[instructorNameKey] = allInstructors.indexOf(instructorName)!+1
             
             do {
                 try plist!.addValuesToPlistFile(dict)
@@ -82,8 +83,6 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
     }
-    
-    
 }
 
 func makeInstructorList(hospital: Int) -> [String] {
