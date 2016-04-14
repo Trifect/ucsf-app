@@ -9,7 +9,7 @@
 import Foundation
 
 //get json object from serverapi.swift
-
+//this will actually be pretty hard, this will be for old/in progress forms
 let url = NSBundle.mainBundle().URLForResource("serverData", withExtension: "json")
 let data = NSData(contentsOfURL: url!)
 

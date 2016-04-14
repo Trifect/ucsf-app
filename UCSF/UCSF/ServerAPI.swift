@@ -72,9 +72,13 @@ class MockServer { //all the clientside vars should be optionals???
     
     //serverside - if not selected, set to 0 (our version of Null) and will be empty string or 0
     var hospitalList: [String] = []        //["", "SFGH", "Parnassus", "VA"]
+    
+    //change this var instructorList: [Dictionary], each instructor is now a dictionary
+    //save all instructor under one large list of dictionaries
     var instructListSFGH: [String] = [] //["", "Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
     var instructListParn: [String] = [] //["", "Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
     var instructListVA: [String] = []   //["", "Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
+    
     var procedureList: [String] = ["", "Colonoscopy", "EGD"]
     //colonoscopy
     var extentList: [String] = ["", "Rectum", "Sigmoid", "Descending", "Transverse", "Ascending", "Cecum",
