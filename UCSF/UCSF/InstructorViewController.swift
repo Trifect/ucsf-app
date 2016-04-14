@@ -9,6 +9,11 @@
 import UIKit
 
 let instructorNameKey = "instructorName"
+var instructorListSFGH = ["Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
+var instructorListParnassus = ["Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
+var instructorListVA = ["Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
+let allInstructors = instructorListSFGH + instructorListParnassus + instructorListVA
+
 
 class InstructorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,9 +22,7 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var instructorTableView: UITableView!
     
-    var instructorListSFGH = ["Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
-    var instructorListParnassus = ["Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
-    var instructorListVA = ["Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
+    let instructorList = makeInstructorList(dict[hospitalKey] as! Int)
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,8 +30,6 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         
         self.tableView.backgroundColor = myBlue
-        
-        
 
         // Do any additional setup after loading the view.
     }
@@ -39,9 +40,10 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int)
         -> Int {
-            return instructorListSFGH.count
+            return instructorList.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -49,24 +51,23 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let iCell = self.instructorTableView.dequeueReusableCellWithIdentifier("iCell", forIndexPath: indexPath) as! instructorCell
         
-        iCell.instructorName.text = instructorListSFGH[indexPath.row]
+        iCell.instructorName.text = instructorList[indexPath.row]
         let myBlue2: UIColor = UIColor.init(colorLiteralRed: 0.467, green: 0.686, blue: 0.847, alpha: 1.0)
         if (indexPath.row % 2 == 0) {
             iCell.backgroundColor = myBlue2
             
         }
-    
         return iCell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // this deals with saving into plist from selected cell
         let selectedRow = indexPath.row
-        let instructorName = instructorListSFGH[selectedRow]
+        let instructorName = instructorList[selectedRow]
         if (plist != nil) {
             
             let dict = plist!.getMutablePlistFile()!
-            dict[instructorNameKey] = instructorName
+            dict[instructorNameKey] = allInstructors.indexOf(instructorName)
             
             do {
                 try plist!.addValuesToPlistFile(dict)
@@ -81,6 +82,22 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
     }
+    
+    
+}
+
+func makeInstructorList(hospital: Int) -> [String] {
+    switch hospital {
+    case 1:
+        return instructorListSFGH
+    case 2:
+        return instructorListParnassus
+    case 3:
+        return instructorListVA
+    default:
+        return []
+    }
+}
     /*
     // MARK: - Navigation
 
@@ -91,4 +108,4 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     */
 
-}
+
