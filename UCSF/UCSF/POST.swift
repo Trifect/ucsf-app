@@ -14,12 +14,13 @@ import Foundation
 
 func readPlist() -> NSDictionary {
     var plistdata: NSDictionary?
-    if let path = NSBundle.mainBundle().pathForResource("clientData", ofType: "plist") {
+    if let path = NSBundle.mainBundle().pathForResource("data", ofType: "plist") {
         plistdata = NSDictionary(contentsOfFile: path)
     }
     return plistdata!
 }
 
+//depricated func
 func selectHospital(hospital: String) -> Int { //have rob make hospital in plist [Int]
     var hospitalVal = 0
     let plistdata = readPlist()
@@ -44,12 +45,13 @@ func makePOST() -> NSString { //during submission
     if let hospital = plistdata.valueForKey("hospital") as? String {
         hospitalVal = selectHospital(hospital)
     }
-    
+    //need to completely redo this after plist is fully updated
     let trainee = plistdata.valueForKey("traineeName") as? String
     let caseID = plistdata.valueForKey("caseID") as? String
     
     let objectJSON: Dictionary<String, NSObject> = ["SM":NSNull(), "ED":NSNull(), "FormRuntime": NSNull(), "FormSessionID":"FS_10vEVOCdpkg6qJH", "Questions":["QID2":["Value":trainee!],"QID3":["Value":caseID!],"QID1":["Selected":hospitalVal]]]
     
+    //testing purpose only, modify to save to clientData.json and send to ServerAPI.swift
     var readableJSONdata: NSString = ""
     if NSJSONSerialization.isValidJSONObject(objectJSON) {
         do {

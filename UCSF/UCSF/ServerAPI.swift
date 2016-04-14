@@ -44,12 +44,13 @@ class MockServer { //all the clientside vars should be optionals???
     
     //clientside
     var users: [String] = []
-    var userpw: [String: String] = [:] // keys users: value pw
+    var userpw: [String: String] = [:] // users: pw
     
-    var sessionIDs: [String: [String]] = [:] //have keys be users and store each session id under users
-    var caseIDs: [String: String] = [:] //have keys be sessionID and store each caseID as part of list
-    var procedure: [String: Int] = [:] //have keys be caseID -> link to procedureList
-    var procedureDate: [String: String] = [:] //have keys be caseID
+    var sessionIDs: [String: [String]] = [:] //users: [sessionIDs]
+    var caseIDs: [String: String] = [:] //sessionID: caseID
+    var hospitals: [String: Int] = [:] //caseID: Int -> hospitalList
+    var procedures: [String: Int] = [:] //caseID: Int -> link to procedureList
+    var procedureDates: [String: String] = [:] //caseID: dates
     
     //colonoscopy
     var extent: [String: Int] = [:] //keys caseID -> link to extentList
@@ -70,7 +71,7 @@ class MockServer { //all the clientside vars should be optionals???
     //incomplete (last few more pages to include in server)
     
     //serverside - if not selected, set to 0 (our version of Null) and will be empty string or 0
-    var hospitals: [String] = []        //["", "SFGH", "Parnassus", "VA"]
+    var hospitalList: [String] = []        //["", "SFGH", "Parnassus", "VA"]
     var instructListSFGH: [String] = [] //["", "Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
     var instructListParn: [String] = [] //["", "Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
     var instructListVA: [String] = []   //["", "Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
@@ -91,7 +92,7 @@ class MockServer { //all the clientside vars should be optionals???
                                       "Dilation", "pH-Bravo"]
     
     func setHospitals(hospitalList: [String]) {
-        self.hospitals = hospitalList
+        self.hospitalList = hospitalList
     }
     
     func setInstructors(sfList: [String], parnList: [String], vaList: [String]) {
