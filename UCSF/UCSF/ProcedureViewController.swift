@@ -20,7 +20,9 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
         if (plist != nil) {
             let dict = plist!.getMutablePlistFile()!
             dict[procedureDateKey] = dateTextField.text!
+            
             dict[procedureKey] = procedureNames.indexOf(procedureName.text!)!+1
+
             
             //3 Next we’re going to write the new value to the plist. We have to wrap this in our do-try-catch.
             do {
