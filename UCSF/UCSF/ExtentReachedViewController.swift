@@ -8,13 +8,32 @@
 
 import UIKit
 
+let extentReachedKey = "extentReached"
+let insertionTimeKey = "insertionTime"
+let withdrawlTimeKey = "withdrawlTime"
+let prepQualityKey = "prepQuality"
+
 class ExtentReachedViewController: UIViewController, UIPopoverPresentationControllerDelegate, PassBackDelegate {
     
     @IBAction func nextButton(sender: AnyObject) {
-        
-        
+        if (plist != nil) {
+            let dict = plist!.getMutablePlistFile()!
+            dict[extentReachedKey] = extentReachedText.text!
+            dict[insertionTimeKey] = insertionTime.text!
+            dict[withdrawlTimeKey] = withdrawlTime.text!
+            dict[prepQualityKey] = Int(mySlider.value)
+            do {
+                try plist!.addValuesToPlistFile(dict)
+            } catch {
+                print(error)
+            }
+            
+            print(plist!.getValuesInPlistFile())
+
+        } else {
+            print("Unable to get Plist")
+        }
     }
-    
     
     @IBAction func popOver(sender: AnyObject) {
         self.performSegueWithIdentifier("showView3", sender: self)
@@ -29,12 +48,19 @@ class ExtentReachedViewController: UIViewController, UIPopoverPresentationContro
     @IBOutlet weak var mySlider: UISlider!
     
     
+    @IBOutlet weak var insertionTime: UITextField!
+    
+    
+    @IBOutlet weak var withdrawlTime: UITextField!
+    
+    
     @IBAction func sliderChanged(sender: AnyObject) {
         sender.setValue(Float(lroundf(mySlider.value)), animated: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 
