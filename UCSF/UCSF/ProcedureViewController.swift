@@ -20,9 +20,11 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
         if (plist != nil) {
             let dict = plist!.getMutablePlistFile()!
             dict[procedureDateKey] = dateTextField.text!
-            
-            dict[procedureKey] = procedureNames.indexOf(procedureName.text!)!+1
-
+            if  procedureNames.indexOf(procedureName.text!) != nil {
+                dict[procedureKey] = procedureNames.indexOf(procedureName.text!)!+1
+            } else {
+                dict[procedureKey] = 0
+            }
             
             //3 Next we’re going to write the new value to the plist. We have to wrap this in our do-try-catch.
             do {
@@ -107,7 +109,7 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
             destination.passBackDelegate = self
             
             // Sets the coordinates of the popover arrow so that it points to the middle of the anchor view.
-            segue.destinationViewController.popoverPresentationController?.sourceRect = CGRectMake(procedureButton.frame.size.width/2, 0, 0, 0)
+            segue.destinationViewController.popoverPresentationController?.sourceRect = CGRectMake(procedureButton.frame.size.width/2, procedureButton.frame.size.height, 0, 0)
             
             if  controller != nil {
                 controller?.delegate = self
