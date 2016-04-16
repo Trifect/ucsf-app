@@ -46,35 +46,37 @@ class MockServer { //all the clientside vars should be optionals???
     var users: [String] = []
     var userpw: [String: String] = [:] // users: pw
     
-    var sessionIDs: [String: [String]] = [:] //users: [sessionIDs]
-    var caseIDs: [String: String] = [:] //sessionID: caseID
-    var hospitals: [String: Int] = [:] //caseID: Int -> hospitalList
-    var procedures: [String: Int] = [:] //caseID: Int -> link to procedureList
-    var procedureDates: [String: String] = [:] //caseID: dates
+    //need to generate sessionIDs
+    var docIDs: [String: [String]] = [:] //users: [docIDs]
+    var caseIDs: [String: String] = [:] //docIDs: caseID
+    var hospitals: [String: Int] = [:] //docIDs: Int -> hospitalList
+    var procedures: [String: Int] = [:] //docIDs: Int -> link to procedureList
+    var procedureDates: [String: String] = [:] //docIDs: dates
     
     //colonoscopy
-    var extent: [String: Int] = [:] //keys caseID -> link to extentList
-    var insertTime: [String: String] = [:] //key caseID
-    var withdrawTime: [String: String] = [:] //key caseID
-    var quality: [String: Int] = [:] //keys caseID -> link to qualityList
-    var cspylocation: [String: Int] = [:] //key caseID -> link to cspylocList
+    var extent: [String: Int] = [:] //keys docIDs -> link to extentList
+    var insertTime: [String: String] = [:] //key docIDs
+    var withdrawTime: [String: String] = [:] //key docIDs
+    var quality: [String: Int] = [:] //keys docIDs -> link to qualityList
+    var cspylocation: [String: Int] = [:] //key docIDs -> link to cspylocList
     
     //egd
-    var egdlocation: [String: Int] = [:] //keys caseID -> link to egdlocList
+    var egdlocation: [String: Int] = [:] //keys docIDs -> link to egdlocList
     
-    var findings: [String: Int] = [:] //keys caseID
-    var size: [String: String] = [:] //keys caseID
-    var intervention: [String: Int] = [:] //caseID: link to interventionList, will need to look for bool depending on app
+    var findings: [String: Int] = [:] //keys docIDs
+    var size: [String: String] = [:] //keys docIDs
+    var intervention: [String: Int] = [:] //docIDs: link to interventionList, will need to look for bool depending on app
     
     //???
     var transactionID: Int = 0
     //incomplete (last few more pages to include in server)
     
     //serverside - if not selected, set to 0 (our version of Null) and will be empty string or 0
-    var hospitalList: [String] = []        //["", "SFGH", "Parnassus", "VA"]
+    var hospitalList: [String] = [] //["", "SFGH", "Parnassus", "VA"]
     
     //change this var instructorList: [Dictionary], each instructor is now a dictionary
     //save all instructor under one large list of dictionaries
+    //var instructorList: [Dictionary]
     var instructListSFGH: [String] = [] //["", "Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
     var instructListParn: [String] = [] //["", "Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
     var instructListVA: [String] = []   //["", "Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
