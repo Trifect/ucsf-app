@@ -76,10 +76,11 @@ class MockServer { //all the clientside vars should be optionals???
     
     //change this var instructorList: [Dictionary], each instructor is now a dictionary
     //save all instructor under one large list of dictionaries
-    //var instructorList: [Dictionary]
-    var instructListSFGH: [String] = [] //["", "Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
-    var instructListParn: [String] = [] //["", "Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
-    var instructListVA: [String] = []   //["", "Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
+    var instructList: [Dictionary<String, AnyObject>] = [[:]]
+    // instructor example [["Name":"Cello", "Hospital":"1", "InstructVal": 1]]
+    // var instructListSFGH: [String] = ["Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
+    // var instructListParn: [String] = ["Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
+    // var instructListVA: [String] = ["Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
     
     var procedureList: [String] = ["", "Colonoscopy", "EGD"]
     //colonoscopy
@@ -101,10 +102,33 @@ class MockServer { //all the clientside vars should be optionals???
         self.hospitalList = hospitalList
     }
     
-    func setInstructors(sfList: [String], parnList: [String], vaList: [String]) {
-        self.instructListSFGH = sfList
-        self.instructListParn = parnList
-        self.instructListVA = vaList
+    func setInstructors(SFGH: [String], Parn: [String], VA: [String]) {
+        //
+        var countSFGH = 1
+        for instructors in SFGH {
+            instructList.append(["Name": instructors, "Hospital": 1, "InstructVal": countSFGH])
+            countSFGH += 1
+        }
+        
+        var countParn = countSFGH //possibly just generalize count, but maybe I might use these for something
+        for instructors in Parn {
+            instructList.append(["Name": instructors, "Hospital": 2, "InstructVal": countParn])
+            countParn += 1
+        }
+        
+        var countVA = countParn
+        for instructors in VA {
+            instructList.append(["Name": instructors, "Hosptial": 3, "InstructVal": countVA])
+            countVA += 1
+        }
+    }
+    
+    func addInstructors() {
+        //
+    }
+    
+    func delInstructors() {
+        //
     }
     
     //communication functions
