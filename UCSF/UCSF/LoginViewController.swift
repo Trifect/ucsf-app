@@ -17,6 +17,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
+        let localserver = MockServer()
+        print("Server initialized")
+        localserver.setHospitals(["", "SFGH", "Parnassus", "VA"])
+        
+        let instructListSFGH: [String] = ["Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
+        let instructListParn: [String] = ["Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
+        let instructListVA: [String] = ["Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
+        
+        localserver.setInstructors(instructListSFGH, Parn: instructListParn, VA: instructListVA)
+        
+        
         super.viewDidLoad()
 
         username.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])

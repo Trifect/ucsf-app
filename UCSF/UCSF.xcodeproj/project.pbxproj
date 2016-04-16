@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63E53D9D1CB5A24A00169B75 /* ServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E53D9C1CB5A24A00169B75 /* ServerAPI.swift */; };
+		63E53D9D1CB5A24A00169B75 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E53D9C1CB5A24A00169B75 /* Server.swift */; };
 		63E53D9F1CB5A2B300169B75 /* POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E53D9E1CB5A2B300169B75 /* POST.swift */; };
 		63E53DA31CB5A3C900169B75 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E53DA21CB5A3C900169B75 /* ResponseAPI.swift */; };
+		63EF01AE1CC2F63600415F22 /* CRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EF01AD1CC2F63600415F22 /* CRUD.swift */; };
 		9D17125A1CACAB4900F5BCE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1712591CACAB4900F5BCE7 /* AppDelegate.swift */; };
 		9D17125C1CACAB4900F5BCE7 /* HospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17125B1CACAB4900F5BCE7 /* HospitalViewController.swift */; };
 		9D17125F1CACAB4900F5BCE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D17125D1CACAB4900F5BCE7 /* Main.storyboard */; };
@@ -32,9 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		63E53D9C1CB5A24A00169B75 /* ServerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerAPI.swift; sourceTree = "<group>"; };
-		63E53D9E1CB5A2B300169B75 /* POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POST.swift; sourceTree = "<group>"; };
-		63E53DA21CB5A3C900169B75 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
+		63E53D9C1CB5A24A00169B75 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		63E53D9E1CB5A2B300169B75 /* POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = POST.swift; path = UCSF/POST.swift; sourceTree = "<group>"; };
+		63E53DA21CB5A3C900169B75 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResponseAPI.swift; path = UCSF/ResponseAPI.swift; sourceTree = "<group>"; };
+		63EF01AD1CC2F63600415F22 /* CRUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRUD.swift; sourceTree = "<group>"; };
 		9D1712561CACAB4900F5BCE7 /* UCSF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UCSF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1712591CACAB4900F5BCE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D17125B1CACAB4900F5BCE7 /* HospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalViewController.swift; sourceTree = "<group>"; };
@@ -90,9 +92,7 @@
 		6367E2441CC1C5070035DB77 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				63E53D9E1CB5A2B300169B75 /* POST.swift */,
-				63E53DA21CB5A3C900169B75 /* ResponseAPI.swift */,
-				63E53D9C1CB5A24A00169B75 /* ServerAPI.swift */,
+				63E53D9C1CB5A24A00169B75 /* Server.swift */,
 			);
 			name = Server;
 			sourceTree = "<group>";
@@ -143,9 +143,20 @@
 			name = "Homescreen Page";
 			sourceTree = "<group>";
 		};
+		63EF01AC1CC2F60200415F22 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				63EF01AD1CC2F63600415F22 /* CRUD.swift */,
+				63E53D9E1CB5A2B300169B75 /* POST.swift */,
+				63E53DA21CB5A3C900169B75 /* ResponseAPI.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		9D17124D1CACAB4900F5BCE7 = {
 			isa = PBXGroup;
 			children = (
+				63EF01AC1CC2F60200415F22 /* API */,
 				9D1712581CACAB4900F5BCE7 /* UCSF */,
 				9D1712571CACAB4900F5BCE7 /* Products */,
 			);
@@ -263,11 +274,12 @@
 				E1A902A41CB3394600208610 /* InstructorViewController.swift in Sources */,
 				63E53DA31CB5A3C900169B75 /* ResponseAPI.swift in Sources */,
 				E10460E71CC0280100003449 /* ExtentReachedPopoverViewController.swift in Sources */,
+				63EF01AE1CC2F63600415F22 /* CRUD.swift in Sources */,
 				E10460DF1CC01AF000003449 /* ExtentReachedViewController.swift in Sources */,
 				E1DE34431CB6D8C60030BB7E /* ProcedureViewController.swift in Sources */,
 				9D1712721CB101AC00F5BCE7 /* HospitalCell.swift in Sources */,
 				E1AEA53B1CB6EB4000CFD75B /* ProcedureCell.swift in Sources */,
-				63E53D9D1CB5A24A00169B75 /* ServerAPI.swift in Sources */,
+				63E53D9D1CB5A24A00169B75 /* Server.swift in Sources */,
 				9D17126E1CAFBCB100F5BCE7 /* HomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
