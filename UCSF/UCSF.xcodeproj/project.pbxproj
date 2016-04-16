@@ -19,6 +19,7 @@
 		9D17126E1CAFBCB100F5BCE7 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17126D1CAFBCB100F5BCE7 /* HomeScreenViewController.swift */; };
 		9D1712701CB083C000F5BCE7 /* HospitalPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17126F1CB083C000F5BCE7 /* HospitalPopoverViewController.swift */; };
 		9D1712721CB101AC00F5BCE7 /* HospitalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1712711CB101AC00F5BCE7 /* HospitalCell.swift */; };
+		9DAC5B5F1CC052A0006367D9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC5B5E1CC052A0006367D9 /* LoginViewController.swift */; };
 		E10460DF1CC01AF000003449 /* ExtentReachedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10460DE1CC01AF000003449 /* ExtentReachedViewController.swift */; };
 		E10460E11CC01D5B00003449 /* ExtentReachedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10460E01CC01D5B00003449 /* ExtentReachedCell.swift */; };
 		E10460E71CC0280100003449 /* ExtentReachedPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10460E61CC0280100003449 /* ExtentReachedPopoverViewController.swift */; };
@@ -46,6 +47,7 @@
 		9D17126D1CAFBCB100F5BCE7 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		9D17126F1CB083C000F5BCE7 /* HospitalPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalPopoverViewController.swift; sourceTree = "<group>"; };
 		9D1712711CB101AC00F5BCE7 /* HospitalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalCell.swift; sourceTree = "<group>"; };
+		9DAC5B5E1CC052A0006367D9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E10460DE1CC01AF000003449 /* ExtentReachedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtentReachedViewController.swift; sourceTree = "<group>"; };
 		E10460E01CC01D5B00003449 /* ExtentReachedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtentReachedCell.swift; sourceTree = "<group>"; };
 		E10460E61CC0280100003449 /* ExtentReachedPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtentReachedPopoverViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				E10460E61CC0280100003449 /* ExtentReachedPopoverViewController.swift */,
 				E10460E01CC01D5B00003449 /* ExtentReachedCell.swift */,
 				9D17125D1CACAB4900F5BCE7 /* Main.storyboard */,
+				9DAC5B5E1CC052A0006367D9 /* LoginViewController.swift */,
 				9D1712601CACAB4900F5BCE7 /* Assets.xcassets */,
 				9D1712621CACAB4900F5BCE7 /* LaunchScreen.storyboard */,
 				9D1712651CACAB4900F5BCE7 /* Info.plist */,
@@ -191,6 +194,7 @@
 				E1C6DF0D1CB2E68700B2576F /* Plist.swift in Sources */,
 				E1A902A21CB3375600208610 /* instructorCell.swift in Sources */,
 				9D1712701CB083C000F5BCE7 /* HospitalPopoverViewController.swift in Sources */,
+				9DAC5B5F1CC052A0006367D9 /* LoginViewController.swift in Sources */,
 				E1AEA5371CB6E64E00CFD75B /* ProcedurePopoverViewController.swift in Sources */,
 				9D17125C1CACAB4900F5BCE7 /* ViewController.swift in Sources */,
 				9D17125A1CACAB4900F5BCE7 /* AppDelegate.swift in Sources */,
