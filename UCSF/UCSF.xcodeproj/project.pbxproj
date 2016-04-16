@@ -12,7 +12,7 @@
 		63E53D9F1CB5A2B300169B75 /* POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E53D9E1CB5A2B300169B75 /* POST.swift */; };
 		63E53DA31CB5A3C900169B75 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E53DA21CB5A3C900169B75 /* ResponseAPI.swift */; };
 		9D17125A1CACAB4900F5BCE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1712591CACAB4900F5BCE7 /* AppDelegate.swift */; };
-		9D17125C1CACAB4900F5BCE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17125B1CACAB4900F5BCE7 /* ViewController.swift */; };
+		9D17125C1CACAB4900F5BCE7 /* HospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17125B1CACAB4900F5BCE7 /* HospitalViewController.swift */; };
 		9D17125F1CACAB4900F5BCE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D17125D1CACAB4900F5BCE7 /* Main.storyboard */; };
 		9D1712611CACAB4900F5BCE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D1712601CACAB4900F5BCE7 /* Assets.xcassets */; };
 		9D1712641CACAB4900F5BCE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D1712621CACAB4900F5BCE7 /* LaunchScreen.storyboard */; };
@@ -39,7 +39,7 @@
 		63E53DA21CB5A3C900169B75 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
 		9D1712561CACAB4900F5BCE7 /* UCSF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UCSF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D1712591CACAB4900F5BCE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9D17125B1CACAB4900F5BCE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9D17125B1CACAB4900F5BCE7 /* HospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalViewController.swift; sourceTree = "<group>"; };
 		9D17125E1CACAB4900F5BCE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D1712601CACAB4900F5BCE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D1712631CACAB4900F5BCE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,6 +71,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6367E23F1CC1C45D0035DB77 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				9DAC5B5E1CC052A0006367D9 /* LoginViewController.swift */,
+			);
+			name = LoginPage;
+			sourceTree = "<group>";
+		};
+		6367E2431CC1C4CE0035DB77 /* ExtentReachedPage */ = {
+			isa = PBXGroup;
+			children = (
+				E10460DE1CC01AF000003449 /* ExtentReachedViewController.swift */,
+				E10460E61CC0280100003449 /* ExtentReachedPopoverViewController.swift */,
+				E10460E01CC01D5B00003449 /* ExtentReachedCell.swift */,
+			);
+			name = ExtentReachedPage;
+			sourceTree = "<group>";
+		};
+		6367E2441CC1C5070035DB77 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				63E53D9E1CB5A2B300169B75 /* POST.swift */,
+				637908111CB9A9FD00EFCAE2 /* serverData.json */,
+				63E53DA21CB5A3C900169B75 /* ResponseAPI.swift */,
+				63E53D9C1CB5A24A00169B75 /* ServerAPI.swift */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		6367E2451CC1C5380035DB77 /* InstructorPage */ = {
+			isa = PBXGroup;
+			children = (
+				E1A902A31CB3394600208610 /* InstructorViewController.swift */,
+				E1A902A11CB3375600208610 /* instructorCell.swift */,
+			);
+			name = InstructorPage;
+			sourceTree = "<group>";
+		};
+		6367E2471CC1C5C00035DB77 /* HospitalPage */ = {
+			isa = PBXGroup;
+			children = (
+				9D17125B1CACAB4900F5BCE7 /* HospitalViewController.swift */,
+				9D17126F1CB083C000F5BCE7 /* HospitalPopoverViewController.swift */,
+				9D1712711CB101AC00F5BCE7 /* HospitalCell.swift */,
+			);
+			name = HospitalPage;
+			sourceTree = "<group>";
+		};
+		6367E2481CC1C6010035DB77 /* ProcedurePage */ = {
+			isa = PBXGroup;
+			children = (
+				E1DE34421CB6D8C60030BB7E /* ProcedureViewController.swift */,
+				E1AEA5361CB6E64E00CFD75B /* ProcedurePopoverViewController.swift */,
+				E1AEA53A1CB6EB4000CFD75B /* ProcedureCell.swift */,
+			);
+			name = ProcedurePage;
+			sourceTree = "<group>";
+		};
+		6367E2491CC1C6310035DB77 /* DataPlist */ = {
+			isa = PBXGroup;
+			children = (
+				E1C6DF0C1CB2E68700B2576F /* Plist.swift */,
+				E1C6DF0A1CB2E24B00B2576F /* data.plist */,
+			);
+			name = DataPlist;
+			sourceTree = "<group>";
+		};
+		6367E24A1CC1C69E0035DB77 /* Homescreen Page */ = {
+			isa = PBXGroup;
+			children = (
+				9D17126D1CAFBCB100F5BCE7 /* HomeScreenViewController.swift */,
+			);
+			name = "Homescreen Page";
+			sourceTree = "<group>";
+		};
 		9D17124D1CACAB4900F5BCE7 = {
 			isa = PBXGroup;
 			children = (
@@ -90,30 +165,19 @@
 		9D1712581CACAB4900F5BCE7 /* UCSF */ = {
 			isa = PBXGroup;
 			children = (
-				637908111CB9A9FD00EFCAE2 /* serverData.json */,
-				9D1712591CACAB4900F5BCE7 /* AppDelegate.swift */,
-				9D17126D1CAFBCB100F5BCE7 /* HomeScreenViewController.swift */,
-				9D17125B1CACAB4900F5BCE7 /* ViewController.swift */,
-				9D17126F1CB083C000F5BCE7 /* HospitalPopoverViewController.swift */,
-				9D1712711CB101AC00F5BCE7 /* HospitalCell.swift */,
-				E1A902A31CB3394600208610 /* InstructorViewController.swift */,
-				E1DE34421CB6D8C60030BB7E /* ProcedureViewController.swift */,
-				E1AEA5361CB6E64E00CFD75B /* ProcedurePopoverViewController.swift */,
-				E1AEA53A1CB6EB4000CFD75B /* ProcedureCell.swift */,
-				E10460DE1CC01AF000003449 /* ExtentReachedViewController.swift */,
-				E10460E61CC0280100003449 /* ExtentReachedPopoverViewController.swift */,
-				E10460E01CC01D5B00003449 /* ExtentReachedCell.swift */,
 				9D17125D1CACAB4900F5BCE7 /* Main.storyboard */,
-				9DAC5B5E1CC052A0006367D9 /* LoginViewController.swift */,
+				9D1712591CACAB4900F5BCE7 /* AppDelegate.swift */,
+				9D1712651CACAB4900F5BCE7 /* Info.plist */,
+				6367E23F1CC1C45D0035DB77 /* LoginPage */,
+				6367E24A1CC1C69E0035DB77 /* Homescreen Page */,
+				6367E2471CC1C5C00035DB77 /* HospitalPage */,
+				6367E2451CC1C5380035DB77 /* InstructorPage */,
+				6367E2481CC1C6010035DB77 /* ProcedurePage */,
+				6367E2431CC1C4CE0035DB77 /* ExtentReachedPage */,
+				6367E2491CC1C6310035DB77 /* DataPlist */,
+				6367E2441CC1C5070035DB77 /* Server */,
 				9D1712601CACAB4900F5BCE7 /* Assets.xcassets */,
 				9D1712621CACAB4900F5BCE7 /* LaunchScreen.storyboard */,
-				9D1712651CACAB4900F5BCE7 /* Info.plist */,
-				E1A902A11CB3375600208610 /* instructorCell.swift */,
-				E1C6DF0C1CB2E68700B2576F /* Plist.swift */,
-				63E53D9E1CB5A2B300169B75 /* POST.swift */,
-				63E53DA21CB5A3C900169B75 /* ResponseAPI.swift */,
-				E1C6DF0A1CB2E24B00B2576F /* data.plist */,
-				63E53D9C1CB5A24A00169B75 /* ServerAPI.swift */,
 			);
 			path = UCSF;
 			sourceTree = "<group>";
@@ -196,7 +260,7 @@
 				9D1712701CB083C000F5BCE7 /* HospitalPopoverViewController.swift in Sources */,
 				9DAC5B5F1CC052A0006367D9 /* LoginViewController.swift in Sources */,
 				E1AEA5371CB6E64E00CFD75B /* ProcedurePopoverViewController.swift in Sources */,
-				9D17125C1CACAB4900F5BCE7 /* ViewController.swift in Sources */,
+				9D17125C1CACAB4900F5BCE7 /* HospitalViewController.swift in Sources */,
 				9D17125A1CACAB4900F5BCE7 /* AppDelegate.swift in Sources */,
 				E10460E11CC01D5B00003449 /* ExtentReachedCell.swift in Sources */,
 				63E53D9F1CB5A2B300169B75 /* POST.swift in Sources */,
