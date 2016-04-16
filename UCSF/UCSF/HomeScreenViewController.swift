@@ -22,6 +22,7 @@ class HomeScreenViewController: UIViewController {
         startForm.layer.cornerRadius = 5
         startForm.layer.borderWidth = 1
         startForm.layer.borderColor = UIColor.whiteColor().CGColor
+        
         progressForms.layer.cornerRadius = 5
         progressForms.layer.borderWidth = 1
         progressForms.layer.borderColor = UIColor.whiteColor().CGColor
