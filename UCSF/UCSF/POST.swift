@@ -40,7 +40,36 @@ func submitPOST() -> NSString { //incomplete!!!!!!
         hospVal = data.valueForKey("hospital") as! Int
     }
     
-    let objectJSON: Dictionary<String, NSObject> = ["HospitalPage":["Trainee":trainee, "caseID":caseID, "hospitalVal": hospVal]] //this is very incomplete
+    let objectJSON: Dictionary<String, NSObject> = [
+                                                    "formID":[
+                                                        "user": NSNull(),
+                                                        "docID": NSNull()
+                                                        ],
+                                                    "properties":[
+                                                        "submissionDate": NSNull(),
+                                                        "completed": NSNull()
+                                                        ],
+                                                    "pID":[
+                                                        "hosID":[
+                                                            "Trainee": trainee,
+                                                            "caseID": caseID,
+                                                            "hospitalVal": hospVal
+                                                            ],
+                                                        "insID":[
+                                                            NSNull()
+                                                            ],
+                                                        "procID":[
+                                                            NSNull()
+                                                            ],
+                                                        "extID":[
+                                                            NSNull()
+                                                            ],
+                                                        "findID":[
+                                                            NSNull()
+                                                            ]
+                                                        ]
+                                                    ]
+    //["HospitalPage":["Trainee":trainee, "caseID":caseID, "hospitalVal": hospVal]] //this is very incomplete
     
     var submitJSON: NSString = ""
     if NSJSONSerialization.isValidJSONObject(objectJSON) {
