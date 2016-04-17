@@ -20,6 +20,9 @@
 		9D1712701CB083C000F5BCE7 /* HospitalPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17126F1CB083C000F5BCE7 /* HospitalPopoverViewController.swift */; };
 		9D1712721CB101AC00F5BCE7 /* HospitalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1712711CB101AC00F5BCE7 /* HospitalCell.swift */; };
 		9DAC5B5F1CC052A0006367D9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC5B5E1CC052A0006367D9 /* LoginViewController.swift */; };
+		9DAC5B6B1CC32BDB006367D9 /* FindingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC5B681CC32BDB006367D9 /* FindingsCell.swift */; };
+		9DAC5B6C1CC32BDB006367D9 /* FindingsPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC5B691CC32BDB006367D9 /* FindingsPopoverViewController.swift */; };
+		9DAC5B6D1CC32BDB006367D9 /* FindingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC5B6A1CC32BDB006367D9 /* FindingsViewController.swift */; };
 		E10460DF1CC01AF000003449 /* ExtentReachedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10460DE1CC01AF000003449 /* ExtentReachedViewController.swift */; };
 		E10460E11CC01D5B00003449 /* ExtentReachedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10460E01CC01D5B00003449 /* ExtentReachedCell.swift */; };
 		E10460E71CC0280100003449 /* ExtentReachedPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10460E61CC0280100003449 /* ExtentReachedPopoverViewController.swift */; };
@@ -49,6 +52,9 @@
 		9D17126F1CB083C000F5BCE7 /* HospitalPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalPopoverViewController.swift; sourceTree = "<group>"; };
 		9D1712711CB101AC00F5BCE7 /* HospitalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalCell.swift; sourceTree = "<group>"; };
 		9DAC5B5E1CC052A0006367D9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9DAC5B681CC32BDB006367D9 /* FindingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingsCell.swift; sourceTree = "<group>"; };
+		9DAC5B691CC32BDB006367D9 /* FindingsPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingsPopoverViewController.swift; sourceTree = "<group>"; };
+		9DAC5B6A1CC32BDB006367D9 /* FindingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingsViewController.swift; sourceTree = "<group>"; };
 		E10460DE1CC01AF000003449 /* ExtentReachedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtentReachedViewController.swift; sourceTree = "<group>"; };
 		E10460E01CC01D5B00003449 /* ExtentReachedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtentReachedCell.swift; sourceTree = "<group>"; };
 		E10460E61CC0280100003449 /* ExtentReachedPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtentReachedPopoverViewController.swift; sourceTree = "<group>"; };
@@ -153,12 +159,12 @@
 				63E53DA21CB5A3C900169B75 /* ResponseAPI.swift */,
 			);
 			name = API;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		9D17124D1CACAB4900F5BCE7 = {
 			isa = PBXGroup;
 			children = (
-				63EF01AC1CC2F60200415F22 /* API */,
 				9D1712581CACAB4900F5BCE7 /* UCSF */,
 				9D1712571CACAB4900F5BCE7 /* Products */,
 			);
@@ -178,6 +184,7 @@
 				9D17125D1CACAB4900F5BCE7 /* Main.storyboard */,
 				9D1712591CACAB4900F5BCE7 /* AppDelegate.swift */,
 				9D1712651CACAB4900F5BCE7 /* Info.plist */,
+				63EF01AC1CC2F60200415F22 /* API */,
 				E1FF1CDA1CC3091F007F247E /* FlagCasePage */,
 				6367E23F1CC1C45D0035DB77 /* LoginPage */,
 				6367E24A1CC1C69E0035DB77 /* Homescreen Page */,
@@ -185,12 +192,23 @@
 				6367E2451CC1C5380035DB77 /* InstructorPage */,
 				6367E2481CC1C6010035DB77 /* ProcedurePage */,
 				6367E2431CC1C4CE0035DB77 /* ExtentReachedPage */,
+				9DAC5B671CC32B95006367D9 /* FindingsPage */,
 				6367E2491CC1C6310035DB77 /* DataPlist */,
 				6367E2441CC1C5070035DB77 /* Server */,
 				9D1712601CACAB4900F5BCE7 /* Assets.xcassets */,
 				9D1712621CACAB4900F5BCE7 /* LaunchScreen.storyboard */,
 			);
 			path = UCSF;
+			sourceTree = "<group>";
+		};
+		9DAC5B671CC32B95006367D9 /* FindingsPage */ = {
+			isa = PBXGroup;
+			children = (
+				9DAC5B681CC32BDB006367D9 /* FindingsCell.swift */,
+				9DAC5B691CC32BDB006367D9 /* FindingsPopoverViewController.swift */,
+				9DAC5B6A1CC32BDB006367D9 /* FindingsViewController.swift */,
+			);
+			name = FindingsPage;
 			sourceTree = "<group>";
 		};
 		E1FF1CDA1CC3091F007F247E /* FlagCasePage */ = {
@@ -280,10 +298,13 @@
 				9DAC5B5F1CC052A0006367D9 /* LoginViewController.swift in Sources */,
 				E1AEA5371CB6E64E00CFD75B /* ProcedurePopoverViewController.swift in Sources */,
 				9D17125C1CACAB4900F5BCE7 /* HospitalViewController.swift in Sources */,
+				9DAC5B6B1CC32BDB006367D9 /* FindingsCell.swift in Sources */,
 				9D17125A1CACAB4900F5BCE7 /* AppDelegate.swift in Sources */,
 				E10460E11CC01D5B00003449 /* ExtentReachedCell.swift in Sources */,
+				9DAC5B6D1CC32BDB006367D9 /* FindingsViewController.swift in Sources */,
 				63E53D9F1CB5A2B300169B75 /* POST.swift in Sources */,
 				E1A902A41CB3394600208610 /* InstructorViewController.swift in Sources */,
+				9DAC5B6C1CC32BDB006367D9 /* FindingsPopoverViewController.swift in Sources */,
 				63E53DA31CB5A3C900169B75 /* ResponseAPI.swift in Sources */,
 				E10460E71CC0280100003449 /* ExtentReachedPopoverViewController.swift in Sources */,
 				63EF01AE1CC2F63600415F22 /* CRUD.swift in Sources */,
