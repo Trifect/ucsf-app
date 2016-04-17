@@ -8,10 +8,6 @@
 
 import Foundation
 
-//send post to serverapi.swift
-
-//possibly create a function for reading from plist to have exception handling
-
 func readPlist() -> NSDictionary {
     var plistdata: NSDictionary?
     if let path = NSBundle.mainBundle().pathForResource("data", ofType: "plist") {
@@ -20,57 +16,49 @@ func readPlist() -> NSDictionary {
     return plistdata!
 }
 
-//depricated func
-func selectHospital(hospital: String) -> Int { //have rob make hospital in plist [Int]
-    var hospitalVal = 0
-    let plistdata = readPlist()
-    if let hospital = plistdata.valueForKey("hospital") as? String {
+func emptyPOST() {
     
-        if (hospital == "SFGH") {
-            hospitalVal = 1
-        }
-        else if (hospital == "Parnassus") {
-            hospitalVal = 2
-        }
-        else if (hospital == "VA") {
-            hospitalVal = 3
-        }
+}
+
+func savePOST() {
+    //let data = readPlist()
+}
+
+func submitPOST() -> NSString { //incomplete!!!!!!
+    let data = readPlist()
+    
+    var trainee: String = "", caseID: String = "", hospVal: Int = 0
+    if (data.valueForKey("traineeName") != nil) {
+        trainee = data.valueForKey("traineeName") as! String
     }
-    return hospitalVal
-}
-
-func regPOST() -> NSString { //user registration
-    let filler: NSString = ""
-    return filler
-}
-
-func authPOST() -> NSString { //login authentication
-    let filler: NSString = ""
-    return filler
-}
-
-func submitPOST() -> NSString { //during submission
-    let plistdata = readPlist()
-    var hospitalVal = 0
-    if let hospital = plistdata.valueForKey("hospital") as? String {
-        hospitalVal = selectHospital(hospital)
+    
+    if (data.valueForKey("caseID") != nil) {
+        caseID = data.valueForKey("CaseID") as! String
     }
-    //need to completely redo this after plist is fully updated
-    let trainee = plistdata.valueForKey("traineeName") as? String
-    let caseID = plistdata.valueForKey("caseID") as? String
     
-    let objectJSON: Dictionary<String, NSObject> = ["SM":NSNull(), "ED":NSNull(), "FormRuntime": NSNull(), "FormSessionID":"FS_10vEVOCdpkg6qJH", "Questions":["QID2":["Value":trainee!],"QID3":["Value":caseID!],"QID1":["Selected":hospitalVal]]]
+    if (data.valueForKey("hospital") != nil) {
+        hospVal = data.valueForKey("hospital") as! Int
+    }
     
-    //testing purpose only, modify to save to clientData.json and send to ServerAPI.swift
-    var readableJSONdata: NSString = ""
+    let objectJSON: Dictionary<String, NSObject> = ["HospitalPage":["Trainee":trainee, "caseID":caseID, "hospitalVal": hospVal]] //this is very incomplete
+    
+    var submitJSON: NSString = ""
     if NSJSONSerialization.isValidJSONObject(objectJSON) {
         do {
             let jsonData = try NSJSONSerialization.dataWithJSONObject(objectJSON, options: .PrettyPrinted)
-            readableJSONdata = NSString(data: jsonData, encoding: NSUTF8StringEncoding)!
-            print(readableJSONdata)
+            submitJSON = NSString(data: jsonData, encoding: NSUTF8StringEncoding)!
         } catch {
-            print("Error")
+            //some exception handling goes here
         }
     }
-    return readableJSONdata
+    return submitJSON
+}
+
+
+func regPOST(user: String, pw: String) -> NSString {
+    return "" as NSString
+}
+
+func authPOST(user: String, pw: String) -> NSString{
+    return "" as NSString
 }

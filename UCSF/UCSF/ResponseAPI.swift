@@ -8,6 +8,25 @@
 
 import Foundation
 
+func response(file: String) {
+    let data = NSData(contentsOfFile: file)
+    
+    do {
+        let receivedObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+        if let dictionary = receivedObject as? [String: AnyObject] {
+            parseObject(dictionary)
+        }
+    } catch let error as NSError {
+        print(error.description)
+    }
+}
+
+func parseObject(object: [String: AnyObject]) {
+    //go through entire object to look for data...
+}
+
+
+/*
 //get json object from serverapi.swift
 //this will actually be pretty hard, this will be for old/in progress forms
 let url = NSBundle.mainBundle().URLForResource("serverData", withExtension: "json")
@@ -34,4 +53,4 @@ func readJSONobject(object: [String: AnyObject]) { //break into smaller dictiona
     print (trainee)
     print(caseID)
     //send these to plist
-}
+}*/
