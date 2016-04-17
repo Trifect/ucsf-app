@@ -4,6 +4,10 @@
 <dict>
 	<key>extentReached</key>
 	<string></string>
+	<key>flagCase</key>
+	<integer>0</integer>
+	<key>procedureNotes</key>
+	<string></string>
 	<key>insertionTime</key>
 	<string></string>
 	<key>withdrawlTime</key>

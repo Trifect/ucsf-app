@@ -30,6 +30,7 @@
 		E1C6DF0B1CB2E24B00B2576F /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1C6DF0A1CB2E24B00B2576F /* data.plist */; };
 		E1C6DF0D1CB2E68700B2576F /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C6DF0C1CB2E68700B2576F /* Plist.swift */; };
 		E1DE34431CB6D8C60030BB7E /* ProcedureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DE34421CB6D8C60030BB7E /* ProcedureViewController.swift */; };
+		E1FF1CDC1CC30973007F247E /* FlagCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FF1CDB1CC30973007F247E /* FlagCaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		E1C6DF0A1CB2E24B00B2576F /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		E1C6DF0C1CB2E68700B2576F /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		E1DE34421CB6D8C60030BB7E /* ProcedureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedureViewController.swift; sourceTree = "<group>"; };
+		E1FF1CDB1CC30973007F247E /* FlagCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagCaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 				9D17125D1CACAB4900F5BCE7 /* Main.storyboard */,
 				9D1712591CACAB4900F5BCE7 /* AppDelegate.swift */,
 				9D1712651CACAB4900F5BCE7 /* Info.plist */,
+				E1FF1CDA1CC3091F007F247E /* FlagCasePage */,
 				6367E23F1CC1C45D0035DB77 /* LoginPage */,
 				6367E24A1CC1C69E0035DB77 /* Homescreen Page */,
 				6367E2471CC1C5C00035DB77 /* HospitalPage */,
@@ -188,6 +191,14 @@
 				9D1712621CACAB4900F5BCE7 /* LaunchScreen.storyboard */,
 			);
 			path = UCSF;
+			sourceTree = "<group>";
+		};
+		E1FF1CDA1CC3091F007F247E /* FlagCasePage */ = {
+			isa = PBXGroup;
+			children = (
+				E1FF1CDB1CC30973007F247E /* FlagCaseViewController.swift */,
+			);
+			name = FlagCasePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1FF1CDC1CC30973007F247E /* FlagCaseViewController.swift in Sources */,
 				E1C6DF0D1CB2E68700B2576F /* Plist.swift in Sources */,
 				E1A902A21CB3375600208610 /* instructorCell.swift in Sources */,
 				9D1712701CB083C000F5BCE7 /* HospitalPopoverViewController.swift in Sources */,

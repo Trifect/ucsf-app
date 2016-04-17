@@ -519,6 +519,90 @@
             </objects>
             <point key="canvasLocation" x="3645" y="-251"/>
         </scene>
+        <!--Flag Case View Controller-->
+        <scene sceneID="GaV-7X-Rem">
+            <objects>
+                <viewController id="MdA-hf-TQs" customClass="FlagCaseViewController" customModule="UCSF" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QHV-1J-Yk8"/>
+                        <viewControllerLayoutGuide type="bottom" id="eLB-Sn-Y3g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Pj-yC-Fa2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BeC-CD-q7a">
+                                <rect key="frame" x="200" y="131" width="200" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="f8b-qQ-iJU"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="No"/>
+                                    <segment title="Yes"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flag Case for Follow Up?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6Q-J4-eEl">
+                                <rect key="frame" x="200" y="100" width="200" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8eq-cl-MrM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Procedure Notes:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdv-Xv-b6x">
+                                <rect key="frame" x="200" y="195" width="200" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="jLx-cg-36o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bkt-vT-PB7">
+                                <rect key="frame" x="130" y="226" width="340" height="181.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="elg-V4-98m"/>
+                                    <constraint firstAttribute="width" secondItem="bkt-vT-PB7" secondAttribute="height" multiplier="15:8" id="vHe-ia-gAz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y80-7V-o9g">
+                                <rect key="frame" x="200" y="433.5" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Uah-LI-7Os"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButton:" destination="MdA-hf-TQs" eventType="touchUpInside" id="LzA-qj-1hz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bkt-vT-PB7" firstAttribute="centerX" secondItem="6Pj-yC-Fa2" secondAttribute="centerX" id="7cp-9D-cMl"/>
+                            <constraint firstItem="y80-7V-o9g" firstAttribute="centerX" secondItem="6Pj-yC-Fa2" secondAttribute="centerX" id="Cms-Jn-Cwn"/>
+                            <constraint firstItem="c6Q-J4-eEl" firstAttribute="centerX" secondItem="6Pj-yC-Fa2" secondAttribute="centerX" id="Kxy-oG-b47"/>
+                            <constraint firstItem="bkt-vT-PB7" firstAttribute="top" secondItem="Bdv-Xv-b6x" secondAttribute="bottom" constant="10" id="LVD-6v-vR8"/>
+                            <constraint firstItem="Bdv-Xv-b6x" firstAttribute="centerX" secondItem="6Pj-yC-Fa2" secondAttribute="centerX" id="MNb-DO-9MP"/>
+                            <constraint firstItem="Bdv-Xv-b6x" firstAttribute="top" secondItem="BeC-CD-q7a" secondAttribute="bottom" constant="36" id="ddW-al-k6j"/>
+                            <constraint firstItem="BeC-CD-q7a" firstAttribute="top" secondItem="c6Q-J4-eEl" secondAttribute="bottom" constant="10" id="faw-hd-zk5"/>
+                            <constraint firstItem="BeC-CD-q7a" firstAttribute="centerX" secondItem="6Pj-yC-Fa2" secondAttribute="centerX" id="nAo-Nd-wjA"/>
+                            <constraint firstItem="y80-7V-o9g" firstAttribute="top" secondItem="bkt-vT-PB7" secondAttribute="bottom" constant="26" id="q6o-FM-83s"/>
+                            <constraint firstItem="c6Q-J4-eEl" firstAttribute="top" secondItem="QHV-1J-Yk8" secondAttribute="bottom" constant="80" id="uJc-6e-dIk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="flagCase" destination="BeC-CD-q7a" id="Lzp-vw-Ztp"/>
+                        <outlet property="procedureNotes" destination="bkt-vT-PB7" id="TWr-E7-XfU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nmZ-7r-Rs5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4067" y="112"/>
+        </scene>
         <!--Extent Reached View Controller-->
         <scene sceneID="CjO-dp-Jzj">
             <objects>
