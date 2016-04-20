@@ -63,4 +63,8 @@ func writeCRUD(data: NSString, dest: String) {
     }
 }
 
+func readCRUD(dest: String) {
+    
+}
+
 //use this to check for and create files
