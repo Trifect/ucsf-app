@@ -16,7 +16,7 @@ class FindingsViewController: UIViewController, UIPopoverPresentationControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Findings"
         findingsButton.layer.cornerRadius = 5
         findingsButton.layer.borderWidth = 1
         findingsButton.layer.borderColor = UIColor.whiteColor().CGColor
