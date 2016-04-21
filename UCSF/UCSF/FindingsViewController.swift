@@ -17,6 +17,9 @@ class FindingsViewController: UIViewController, UIPopoverPresentationControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         findingsButton.layer.cornerRadius = 5
         findingsButton.layer.borderWidth = 1
         findingsButton.layer.borderColor = UIColor.whiteColor().CGColor
@@ -57,6 +60,11 @@ class FindingsViewController: UIViewController, UIPopoverPresentationControllerD
     
     func sendString(myString: String) {
         findings.text = myString
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
 }
