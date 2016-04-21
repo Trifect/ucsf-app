@@ -40,6 +40,13 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
             print("Unable to get Plist")
         }
         
+        if(procedureNames.indexOf(procedureName.text!) == 0) {
+            performSegueWithIdentifier("colonoscopySegue", sender: self)
+        }
+        else {
+            performSegueWithIdentifier("EGDSegue", sender: self)
+        }
+        
     }
     
     @IBOutlet weak var nextButton: UIButton!
