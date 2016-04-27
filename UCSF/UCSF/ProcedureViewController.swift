@@ -79,7 +79,7 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Procedure"
         nextButton.layer.cornerRadius = 5
         nextButton.layer.borderWidth = 1
         nextButton.layer.borderColor = UIColor.whiteColor().CGColor
