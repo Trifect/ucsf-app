@@ -62,20 +62,21 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         // Do any additional setup after loading the view, typically from a nib.
         
         // Sets the radius, width, and color of the button borders.
+        self.title = "Hospital"
         nextButton.layer.cornerRadius = 5
         nextButton.layer.borderWidth = 1
-        nextButton.layer.borderColor = UIColor.whiteColor().CGColor
+        nextButton.layer.borderColor = UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0).CGColor
         
         hospitalButton.layer.cornerRadius = 5
         hospitalButton.layer.borderWidth = 1
-        hospitalButton.layer.borderColor = UIColor.whiteColor().CGColor
+        hospitalButton.layer.borderColor = UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0).CGColor
         
         // Sets the placeholder text color to white.
-        traineeName.attributedPlaceholder = NSAttributedString(string: "Trainee Name", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        traineeName.attributedPlaceholder = NSAttributedString(string: "Trainee Name", attributes: [NSForegroundColorAttributeName: UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0)])
         
-        caseID.attributedPlaceholder = NSAttributedString(string: "Case ID", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        caseID.attributedPlaceholder = NSAttributedString(string: "Case ID", attributes: [NSForegroundColorAttributeName: UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0)])
         
-        hospital.attributedPlaceholder = NSAttributedString(string: "Hospital", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        hospital.attributedPlaceholder = NSAttributedString(string: "Hospital", attributes: [NSForegroundColorAttributeName: UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0)])
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)

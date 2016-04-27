@@ -38,8 +38,8 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // this deals with saving into plist from selected cell
-        let selectedRow = indexPath.row
-        let interventionName = interventionList[selectedRow]
+        // let selectedRow = indexPath.row
+        // let interventionName = interventionList[selectedRow]
         //WE will implement plist entry here
         
     }

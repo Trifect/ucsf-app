@@ -60,7 +60,7 @@ class ExtentReachedViewController: UIViewController, UIPopoverPresentationContro
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Extent Reached"
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 

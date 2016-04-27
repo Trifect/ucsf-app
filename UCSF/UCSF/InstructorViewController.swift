@@ -29,7 +29,7 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Instructor"
         self.tableView.backgroundColor = myBlue
 
         // Do any additional setup after loading the view.
