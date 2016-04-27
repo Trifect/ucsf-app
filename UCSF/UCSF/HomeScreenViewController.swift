@@ -16,6 +16,12 @@ class HomeScreenViewController: UIViewController {
     
     @IBOutlet weak var progressForms: UIButton!
     
+    
+    @IBAction func newFormButton(sender: AnyObject) {
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Profile"
