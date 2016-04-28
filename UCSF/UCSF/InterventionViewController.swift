@@ -8,41 +8,66 @@
 
 import UIKit
 
+//need this because there are two different popovers on this page
+protocol PassBackDelegate2 {
+    func sendString2(myString:String)
+}
+
+let findingsKey = "findings"
+
 var interventionList = ["Biopsy","Snare Cold", "Snare Hot", "Injection Submucosa", "Injection Epi", "Injection Sclero", "Banding", "Cautery Bicap", "Cautery Argon", "Clip", "Dilation", "pH-Bravo"]
 
-class InterventionViewController: UIViewController,UIPopoverPresentationControllerDelegate, UITableViewDataSource, UITableViewDelegate, PassBackDelegate {
+class InterventionViewController: UIViewController,UIPopoverPresentationControllerDelegate,  PassBackDelegate, PassBackDelegate2 {
     
     @IBOutlet weak var locationButton: UIButton!
     
     @IBOutlet weak var locationName: UITextField!
     
+    @IBOutlet weak var interventionName: UITextField!
+    
+    @IBOutlet weak var sizeTextField: UITextField!
+    
+    @IBOutlet weak var interventionButton: UIButton!
     
     @IBAction func popOver(sender: AnyObject) {
         self.performSegueWithIdentifier("showLocationView", sender: self)
     }
     
-    @IBOutlet weak var tableView: UITableView!
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int {
-            return interventionList.count
+    @IBAction func popOver2(sender: AnyObject) {
+        self.performSegueWithIdentifier("showInterventionSegue", sender: self)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    var toPass:Int! = nil //this is the findings integer
+    
+    var findingDictionary: [String:AnyObject] = [:]
+    
+    var findingsArray: [[String:AnyObject]] = [[:]]
+    
+    @IBAction func nextButton(sender: AnyObject) {
+        findingsArray = dict["findings"] as! Array<[String:AnyObject]>
+        findingDictionary["finding"] = toPass
+        findingDictionary["size"] = sizeTextField.text!
+        findingDictionary["location"] = locationNames.indexOf(locationName.text!)
+        findingDictionary["intervention"] = interventionList.indexOf(interventionName.text!)
+        if (plist != nil) {
+            findingsArray.append(findingDictionary)
+            dict[findingsKey] = findingsArray
+            // dict[findingsKey]?.appendData(findingDictionary)
+            do {
+                try plist!.addValuesToPlistFile(dict)
+            } catch {
+                print(error)
+            }
+            
+            print(plist!.getValuesInPlistFile())
+        }
+        else {
+            print("Unable to get Plist")
+        }
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("interventionCell", forIndexPath: indexPath) as! interventionCell
-        
-        cell.interventionLabel.text = interventionList[indexPath.row]
-        return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // this deals with saving into plist from selected cell
-        // let selectedRow = indexPath.row
-        // let interventionName = interventionList[selectedRow]
-        //WE will implement plist entry here
-        
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showLocationView" {
@@ -57,6 +82,17 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
             }
         }
         
+        if segue.identifier == "showInterventionSegue" {
+            let destination = segue.destinationViewController as! InterventionPopoverViewController
+            let controller = destination.popoverPresentationController
+            destination.passBackDelegate = self
+            
+            segue.destinationViewController.popoverPresentationController?.sourceRect = CGRectMake(interventionButton.frame.size.width/2, 0, 0, 0)
+            
+            if controller != nil {
+                controller?.delegate = self
+            }
+        }
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -98,6 +134,9 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
     
     func sendString(myString: String) {
         locationName.text = myString
+    }
+    func sendString2(myString: String) {
+        interventionName.text = myString
     }
 
 }

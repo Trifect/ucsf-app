@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class interventionCell: UITableViewCell {
+class InterventionCell: UITableViewCell {
     
     @IBOutlet weak var interventionLabel: UILabel!
     
