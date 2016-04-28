@@ -11,12 +11,12 @@
 import Foundation
 
 struct Plist {
-    // 1 Create a PlistError enum to hold our error. We will use this later when we are trying to save data.
+    // 1 Create a PlistError enum to hold our error. We use this later when we are trying to save data.
     enum PlistError: ErrorType {
         case FileNotWritten
         case FileDoesNotExist
     }
-    // 2 The name property is going to hold the name of our plist file. We will set this in our initializer.
+    // 2 The 'name' property is going to hold the name of our plist file. We will set this in our initializer.
     let name:String
     // 3 The sourcePath is a computed property.  The initial location of the plist file is somewhere in your bundle. The NSBundle.mainBundle().pathForResorce( ofType:) will return the path of the plsit. sourcePath is optional and will return .None if no path is found.
     var sourcePath:String? {

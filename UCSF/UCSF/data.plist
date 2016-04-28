@@ -25,9 +25,7 @@
 	<key>procedureDate</key>
 	<string></string>
 	<key>findings</key>
-	<array>
-		<dict/>
-	</array>
+	<array/>
 	<key>hospital</key>
 	<integer>0</integer>
 </dict>
