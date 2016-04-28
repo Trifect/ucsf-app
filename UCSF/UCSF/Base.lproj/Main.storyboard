@@ -1358,13 +1358,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfA-8e-YVE">
-                                <rect key="frame" x="200" y="144" width="200" height="30"/>
-                                <color key="backgroundColor" red="0.46666666670000001" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="200" y="144" width="200" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="2U4-1R-bjP"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <state key="normal" title="Select Procedure">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.48627450979999998" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="Smh-J8-W51" kind="popoverPresentation" identifier="showView2" popoverAnchorView="QfA-8e-YVE" id="vmM-0n-4kK">
@@ -1373,21 +1373,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6G-Ne-8zw">
-                                <rect key="frame" x="200" y="291" width="200" height="30"/>
-                                <color key="backgroundColor" red="0.46666666670000001" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="200" y="292" width="200" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Qqs-a5-S6F"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.48627450979999998" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="nextButton:" destination="crm-2p-fi7" eventType="touchUpInside" id="T3V-OA-sKw"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I8D-C9-hQf">
-                                <rect key="frame" x="200" y="235" width="200" height="30"/>
-                                <color key="backgroundColor" red="0.46666666670000001" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="200" y="236" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="W08-KA-YOq"/>
                                 </constraints>
@@ -1399,8 +1398,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Procedure" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LXH-Co-Xg2">
-                                <rect key="frame" x="200" y="179" width="200" height="30"/>
-                                <color key="backgroundColor" red="0.46666666670000001" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="200" y="180" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="ewb-8H-neJ"/>
                                 </constraints>
@@ -1412,7 +1410,7 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.48627450979999998" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LXH-Co-Xg2" firstAttribute="top" secondItem="Kyt-CF-LGO" secondAttribute="bottom" constant="80" id="24m-cs-w5L"/>
                             <constraint firstItem="x6G-Ne-8zw" firstAttribute="top" secondItem="LXH-Co-Xg2" secondAttribute="bottom" constant="200" id="73c-bk-qn5"/>
@@ -1479,6 +1477,6 @@
         <image name="skyline" width="1900" height="470"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Mko-w2-0tz"/>
+        <segue reference="Ni4-QD-srK"/>
     </inferredMetricsTieBreakers>
 </document>

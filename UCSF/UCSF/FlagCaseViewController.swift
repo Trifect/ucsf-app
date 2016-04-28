@@ -41,6 +41,7 @@ class FlagCaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Flag Case"
         procedureNotes.layer.cornerRadius = 5
         procedureNotes.layer.borderColor = UIColor.grayColor().CGColor
         procedureNotes.layer.borderWidth = 1

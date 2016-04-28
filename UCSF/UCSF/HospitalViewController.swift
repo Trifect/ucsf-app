@@ -71,7 +71,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         hospitalButton.layer.borderWidth = 1
         hospitalButton.layer.borderColor = UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0).CGColor
         
-        // Sets the placeholder text color to white.
+        // Sets the placeholder text color to UCSF light blue.
         traineeName.attributedPlaceholder = NSAttributedString(string: "Trainee Name", attributes: [NSForegroundColorAttributeName: UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0)])
         
         caseID.attributedPlaceholder = NSAttributedString(string: "Case ID", attributes: [NSForegroundColorAttributeName: UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0)])

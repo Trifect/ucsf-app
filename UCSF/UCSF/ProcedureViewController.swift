@@ -82,15 +82,15 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
         self.title = "Procedure"
         nextButton.layer.cornerRadius = 5
         nextButton.layer.borderWidth = 1
-        nextButton.layer.borderColor = UIColor.whiteColor().CGColor
+        nextButton.layer.borderColor = UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0).CGColor
         procedureButton.layer.cornerRadius = 5
         procedureButton.layer.borderWidth = 1
-        procedureButton.layer.borderColor = UIColor.whiteColor().CGColor
+        procedureButton.layer.borderColor = UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0).CGColor
         
         // Sets the placeholder text color to white.
-        procedureName.attributedPlaceholder = NSAttributedString(string: "Procedure", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        procedureName.attributedPlaceholder = NSAttributedString(string: "Procedure", attributes: [NSForegroundColorAttributeName: UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0)])
         
-        dateTextField.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        dateTextField.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSForegroundColorAttributeName: UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0)])
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
