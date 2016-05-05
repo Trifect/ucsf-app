@@ -43,6 +43,7 @@ class ProcedurePopoverViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let returnString = procedureNames[indexPath.row]
         passBackDelegate.sendString(returnString)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
 
 

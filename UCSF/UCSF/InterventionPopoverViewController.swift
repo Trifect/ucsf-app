@@ -41,6 +41,7 @@ class InterventionPopoverViewController: UIViewController, UITableViewDelegate, 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let returnString = interventionList[indexPath.row]
         passBackDelegate.sendString2(returnString)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     

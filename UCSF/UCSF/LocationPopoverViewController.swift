@@ -43,6 +43,7 @@ class LocationPopoverViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let returnString = locationNames[indexPath.row]
         passBackDelegate.sendString(returnString)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
 

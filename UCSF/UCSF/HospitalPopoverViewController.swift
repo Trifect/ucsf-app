@@ -47,6 +47,7 @@ class HospitalPopoverViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let returnString = hospitalNames[indexPath.row]
         passBackDelegate.sendString(returnString)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     // MARK: actions

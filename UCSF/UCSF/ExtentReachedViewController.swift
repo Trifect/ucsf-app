@@ -8,11 +8,6 @@
 
 import UIKit
 
-let extentReachedKey = "extentReached"
-let insertionTimeKey = "insertionTime"
-let withdrawlTimeKey = "withdrawlTime"
-let prepQualityKey = "prepQuality"
-
 class ExtentReachedViewController: UIViewController, UIPopoverPresentationControllerDelegate, PassBackDelegate {
     
     @IBAction func nextButton(sender: AnyObject) {

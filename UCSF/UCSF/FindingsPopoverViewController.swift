@@ -40,6 +40,7 @@ class FindingsPopoverViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let returnString = findingsNames[indexPath.row]
         passBackDelegate.sendString(returnString)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
 

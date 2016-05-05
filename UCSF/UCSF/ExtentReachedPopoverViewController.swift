@@ -31,6 +31,7 @@ class ExtentReachedPopoverViewController: UIViewController, UITableViewDelegate,
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let returnString = extentReachedList[indexPath.row]
         passBackDelegate.sendString(returnString)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     override func viewDidLoad() {

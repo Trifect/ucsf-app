@@ -65,9 +65,7 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
         else {
             print("Unable to get Plist")
         }
-        
     }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showLocationView" {
@@ -104,8 +102,6 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +116,6 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

@@ -33,6 +33,8 @@
 		E1653D011CC8016C00266B4C /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1653D001CC8016C00266B4C /* LocationCell.swift */; };
 		E1653D031CC8A4D900266B4C /* interventionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1653D021CC8A4D900266B4C /* interventionCell.swift */; };
 		E1653D061CC8AA7800266B4C /* LesionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1653D051CC8AA7800266B4C /* LesionsViewController.swift */; };
+		E19D25D11CDAB1EE0039EC40 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D25D01CDAB1EE0039EC40 /* Global.swift */; };
+		E19D25D31CDAB2CF0039EC40 /* Server.plist in Resources */ = {isa = PBXBuildFile; fileRef = E19D25D21CDAB2CF0039EC40 /* Server.plist */; };
 		E1A902A21CB3375600208610 /* instructorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A902A11CB3375600208610 /* instructorCell.swift */; };
 		E1A902A41CB3394600208610 /* InstructorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A902A31CB3394600208610 /* InstructorViewController.swift */; };
 		E1AEA5371CB6E64E00CFD75B /* ProcedurePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AEA5361CB6E64E00CFD75B /* ProcedurePopoverViewController.swift */; };
@@ -72,6 +74,8 @@
 		E1653D001CC8016C00266B4C /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		E1653D021CC8A4D900266B4C /* interventionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = interventionCell.swift; sourceTree = "<group>"; };
 		E1653D051CC8AA7800266B4C /* LesionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LesionsViewController.swift; sourceTree = "<group>"; };
+		E19D25D01CDAB1EE0039EC40 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		E19D25D21CDAB2CF0039EC40 /* Server.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Server.plist; sourceTree = "<group>"; };
 		E1A902A11CB3375600208610 /* instructorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = instructorCell.swift; sourceTree = "<group>"; };
 		E1A902A31CB3394600208610 /* InstructorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorViewController.swift; sourceTree = "<group>"; };
 		E1AEA5361CB6E64E00CFD75B /* ProcedurePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedurePopoverViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				63E53D9C1CB5A24A00169B75 /* Server.swift */,
+				E19D25D21CDAB2CF0039EC40 /* Server.plist */,
 			);
 			name = Server;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				9DAC5B701CC7253F006367D9 /* FormsViewController.swift */,
 				9D1712591CACAB4900F5BCE7 /* AppDelegate.swift */,
 				9D1712651CACAB4900F5BCE7 /* Info.plist */,
+				E19D25D01CDAB1EE0039EC40 /* Global.swift */,
 				E1653D041CC8AA5800266B4C /* Lesions Page */,
 				E1653CFB1CC7FD1200266B4C /* Intervention Page */,
 				63EF01AC1CC2F60200415F22 /* API */,
@@ -315,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1C6DF0B1CB2E24B00B2576F /* data.plist in Resources */,
+				E19D25D31CDAB2CF0039EC40 /* Server.plist in Resources */,
 				9D1712641CACAB4900F5BCE7 /* LaunchScreen.storyboard in Resources */,
 				9D1712611CACAB4900F5BCE7 /* Assets.xcassets in Resources */,
 				9D17125F1CACAB4900F5BCE7 /* Main.storyboard in Resources */,
@@ -351,6 +358,7 @@
 				E1653D011CC8016C00266B4C /* LocationCell.swift in Sources */,
 				63B2B87A1CD156D700D1F490 /* CRUD.swift in Sources */,
 				E10460DF1CC01AF000003449 /* ExtentReachedViewController.swift in Sources */,
+				E19D25D11CDAB1EE0039EC40 /* Global.swift in Sources */,
 				9DAC5B711CC7253F006367D9 /* FormsViewController.swift in Sources */,
 				E1DE34431CB6D8C60030BB7E /* ProcedureViewController.swift in Sources */,
 				9D1712721CB101AC00F5BCE7 /* HospitalCell.swift in Sources */,
