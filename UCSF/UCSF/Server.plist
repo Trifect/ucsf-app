@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   Server.plist
+   UCSF
+
+   Created by Robert Posada on 5/4/16.
+   Copyright (c) 2016 Jimbus. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>dates</key>
+        <dict/>
+        <key>traineeNames</key>
+        <dict/>
+        <key>completion</key>
+        <dict/>
+        <key>locations</key>
+        <dict/>
+        <key>interventions</key>
+        <dict/>
+        <key>sizes</key>
+        <dict/>
+        <key>findingNames</key>
+        <dict/>
+        <key>quality</key>
+        <dict/>
+        <key>withdrawTimes</key>
+        <dict/>
+        <key>insertTimes</key>
+        <dict/>
+        <key>extent</key>
+        <dict/>
+        <key>procedures</key>
+        <dict/>
+        <key>caseIDs</key>
+        <dict/>
+        <key>users</key>
+        <array/>
+        <key>userpw</key>
+        <dict/>
+        <key>docIDs</key>
+        <dict/>
+        <key>hospitals</key>
+        <dict/>
+        <key>instructors</key>
+        <dict/>
+    </dict>
+</plist>
+</plist>

@@ -18,7 +18,6 @@ let allInstructors = instructorListSFGH + instructorListParnassus + instructorLi
 
 class InstructorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let myBlue: UIColor = UIColor.init(colorLiteralRed: 0, green: 0.486, blue: 0.745, alpha: 1.0)
     
 
     @IBOutlet weak var instructorTableView: UITableView!
@@ -30,7 +29,7 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Instructor"
-        self.tableView.backgroundColor = myBlue
+        tableView.backgroundColor = UIColor.init(white: 0.95, alpha: 1.0)//UIColor.init(colorLiteralRed: 242, green: 242, blue: 242, alpha: 1.0)
 
         // Do any additional setup after loading the view.
     }
@@ -53,11 +52,11 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
         let iCell = self.instructorTableView.dequeueReusableCellWithIdentifier("iCell", forIndexPath: indexPath) as! instructorCell
         
         iCell.instructorName.text = instructorList[indexPath.row]
-        let myBlue2: UIColor = UIColor.init(colorLiteralRed: 0.467, green: 0.686, blue: 0.847, alpha: 1.0)
-        if (indexPath.row % 2 == 0) {
-            iCell.backgroundColor = myBlue2
+        //let myGray: UIColor = UIColor.init(colorLiteralRed: 242, green: 242, blue: 242, alpha: 1.0)
+        //if (indexPath.row % 2 == 0) {
+        //iCell.backgroundColor = myGray
             
-        }
+        //}
         return iCell
     }
     

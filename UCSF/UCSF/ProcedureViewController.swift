@@ -8,9 +8,6 @@
 
 import UIKit
 
-let procedureKey = "procedure"
-let procedureDateKey = "procedureDate"
-
 class ProcedureViewController: UIViewController, UIPopoverPresentationControllerDelegate, PassBackDelegate {
     
     @IBOutlet weak var procedureButton: UIButton!
@@ -88,9 +85,9 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
         procedureButton.layer.borderColor = UIColor.whiteColor().CGColor
         
         // Sets the placeholder text color to white.
-        procedureName.attributedPlaceholder = NSAttributedString(string: "Procedure", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        //procedureName.attributedPlaceholder = NSAttributedString(string: "Procedure", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
         
-        dateTextField.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        //dateTextField.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)

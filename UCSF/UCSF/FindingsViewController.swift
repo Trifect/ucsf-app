@@ -23,7 +23,7 @@ class FindingsViewController: UIViewController, UIPopoverPresentationControllerD
         findingsButton.layer.borderWidth = 1
         findingsButton.layer.borderColor = UIColor.whiteColor().CGColor
         
-        findings.attributedPlaceholder = NSAttributedString(string: "Findings", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        //findings.attributedPlaceholder = NSAttributedString(string: "Findings", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
 
         // Do any additional setup after loading the view.
     }

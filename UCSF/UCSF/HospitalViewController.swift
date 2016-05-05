@@ -8,14 +8,6 @@
 
 import UIKit
 
-let traineeNameKey = "traineeName"
-let caseIDKey = "caseID"
-let hospitalKey = "hospital"
-
-let plist = Plist(name: "data")
-let dict = plist!.getMutablePlistFile()!
-
-
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, PassBackDelegate {
     
     // MARK: properties

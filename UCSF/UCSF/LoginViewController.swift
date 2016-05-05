@@ -21,30 +21,18 @@ class LoginViewController: UIViewController {
     //---------------------------------------------------------------------------------------------------------------||
         let localserver = MockServer()
         print("Server initialized")
-        localserver.setHospitals(["", "SFGH", "Parnassus", "VA"])
-        
-        let instructListSFGH: [String] = ["Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
-        let instructListParn: [String] = ["Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
-        let instructListVA: [String] = ["Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
         
         localserver.setInstructors(instructListSFGH, Parn: instructListParn, VA: instructListVA)
     //SERVER END ----------------------------------------------------------------------------------------------------||
-    //---------------------------------------------------------------------------------------------------------------||
-    //API INIT ------------------------------------------------------------------------------------------------------||
-    //---------------------------------------------------------------------------------------------------------------||
-        initCRUD()
-        
-    //API END -------------------------------------------------------------------------------------------------------||
-    //---------------------------------------------------------------------------------------------------------------||
         
         super.viewDidLoad()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 
-        username.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        //username.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
         
-        password.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        //password.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
         
         loginButton.layer.cornerRadius = 5
         loginButton.layer.borderWidth = 1
