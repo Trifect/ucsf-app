@@ -10,10 +10,6 @@ import UIKit
 
 var hospitalNames = ["SFGH", "Parnassus", "VA"]
 
-protocol PassBackDelegate {
-    func sendString(myString:String)
-}
-
 class HospitalPopoverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: properties

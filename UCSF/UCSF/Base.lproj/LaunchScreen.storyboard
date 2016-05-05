@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +18,38 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skyline" translatesAutoresizingMaskIntoConstraints="NO" id="DP6-CI-RbQ">
+                                <rect key="frame" x="0.0" y="451.5" width="600" height="148.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DP6-CI-RbQ" secondAttribute="height" multiplier="1900:470" id="mh3-QG-x3a"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UCSF_sig_white_RGB" translatesAutoresizingMaskIntoConstraints="NO" id="1yZ-Kc-Yqr">
+                                <rect key="frame" x="200" y="80" width="200" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="n7u-Y8-Vx1"/>
+                                    <constraint firstAttribute="width" secondItem="1yZ-Kc-Yqr" secondAttribute="height" multiplier="446:290" id="xeD-6X-sQr"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.48627450979999998" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1yZ-Kc-Yqr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="D1E-UD-0cw"/>
+                            <constraint firstItem="DP6-CI-RbQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OHw-Ca-cQX"/>
+                            <constraint firstItem="DP6-CI-RbQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="OqI-o5-Cmd"/>
+                            <constraint firstAttribute="trailing" secondItem="DP6-CI-RbQ" secondAttribute="trailing" id="UFc-iR-PG0"/>
+                            <constraint firstItem="DP6-CI-RbQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="apV-X4-tTa"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="DP6-CI-RbQ" secondAttribute="bottom" id="gLY-yf-xaV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DP6-CI-RbQ" secondAttribute="trailing" constant="160" id="gdG-t5-bZi"/>
+                            <constraint firstItem="1yZ-Kc-Yqr" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="80" id="sdC-Ej-ztr"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OqI-o5-Cmd"/>
+                                <exclude reference="gdG-t5-bZi"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +57,8 @@
             <point key="canvasLocation" x="527" y="349"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="UCSF_sig_white_RGB" width="446" height="290"/>
+        <image name="skyline" width="1900" height="470"/>
+    </resources>
 </document>
