@@ -8,20 +8,14 @@
 
 import Foundation
 
-func readPlist() -> NSDictionary {
-    var plistdata: NSDictionary?
-    if let path = NSBundle.mainBundle().pathForResource("data", ofType: "plist") {
-        plistdata = NSDictionary(contentsOfFile: path)
-    }
-    return plistdata!
-}
+//got rid of readPlist(), use dict instead
 
 func emptyPOST() {
     
 }
 
 func savePOST() -> NSString {
-    let data = readPlist()
+    //let data = readPlist()
     //let dataKeys = data.allKeys
     //let dataValues = data.allValues
     
@@ -35,22 +29,22 @@ func savePOST() -> NSString {
                                                         ],
                                                     "pID":[
                                                         "hosID":[
-                                                            "Trainee": data.valueForKey("traineeName") as! String,
-                                                            "caseID": data.valueForKey("caseID") as! String,
-                                                            "hospitalVal": data.valueForKey("hospital") as! Int
+                                                            "Trainee": dict.valueForKey("traineeName") as! String,
+                                                            "caseID": dict.valueForKey("caseID") as! String,
+                                                            "hospitalVal": dict.valueForKey("hospital") as! Int
                                                             ],
                                                         "insID":[
-                                                            "instructor": data.valueForKey("instructor") as! Int
+                                                            "instructor": dict.valueForKey("instructor") as! Int
                                                             ],
                                                         "procID":[
-                                                            "procedure": data.valueForKey("procedure") as! Int,
-                                                            "date": data.valueForKey("procedureDate") as! String
+                                                            "procedure": dict.valueForKey("procedure") as! Int,
+                                                            "date": dict.valueForKey("procedureDate") as! String
                                                             ],
                                                         "extID":[
-                                                            "extent": data.valueForKey("extentReached") as! String, //change to Int
-                                                            "insertTime": data.valueForKey("insertionTime") as! String,
-                                                            "withdrawTime": data.valueForKey("withdrawlTime") as! String,
-                                                            "prepQuality": data.valueForKey("prepQuality") as! Int
+                                                            "extent": dict.valueForKey("extentReached") as! String, //change to Int
+                                                            "insertTime": dict.valueForKey("insertionTime") as! String,
+                                                            "withdrawTime": dict.valueForKey("withdrawlTime") as! String,
+                                                            "prepQuality": dict.valueForKey("prepQuality") as! Int
                                                             ],
                                                         "findID":[
                                                             NSNull()
@@ -70,18 +64,18 @@ func savePOST() -> NSString {
 }
 
 func submitPOST() -> NSString { //incomplete!!!!!!
-    let data = readPlist()
+    //let data = readPlist()
     
     //var trainee: String = "", caseID: String = "", hospVal: Int = 0
-    if (data.valueForKey("traineeName") == nil) {
+    if (dict.valueForKey("traineeName") == nil) {
         //set "traineeName" to ""
     }
     
-    if (data.valueForKey("caseID") == nil) {
+    if (dict.valueForKey("caseID") == nil) {
         //caseID = data.valueForKey("CaseID") as! String
     }
     
-    if (data.valueForKey("hospital") == nil) {
+    if (dict.valueForKey("hospital") == nil) {
         //hospVal = data.valueForKey("hospital") as! Int
     }
     
@@ -96,9 +90,9 @@ func submitPOST() -> NSString { //incomplete!!!!!!
                                                         ],
                                                     "pID":[
                                                         "hosID":[
-                                                            "Trainee": data.valueForKey("traineeName") as! String,
-                                                            "caseID": data.valueForKey("caseID") as! String,
-                                                            "hospitalVal": data.valueForKey("hospital") as! Int
+                                                            "Trainee": dict.valueForKey("traineeName") as! String,
+                                                            "caseID": dict.valueForKey("caseID") as! String,
+                                                            "hospitalVal": dict.valueForKey("hospital") as! Int
                                                             ],
                                                         "insID":[
                                                             NSNull()

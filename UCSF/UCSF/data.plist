@@ -2,10 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>findings</key>
+	<array/>
 	<key>extentReached</key>
-	<string></string>
-	<key>flagCase</key>
 	<integer>0</integer>
+	<key>flagCase</key>
+	<false/>
 	<key>procedureNotes</key>
 	<string></string>
 	<key>insertionTime</key>
@@ -24,8 +26,6 @@
 	<integer>0</integer>
 	<key>procedureDate</key>
 	<string></string>
-	<key>findings</key>
-	<array/>
 	<key>hospital</key>
 	<integer>0</integer>
 </dict>

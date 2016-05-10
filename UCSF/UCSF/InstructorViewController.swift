@@ -8,14 +8,6 @@
 
 import UIKit
 
-let instructorNameKey = "instructor"
-
-var instructorListSFGH = ["Cello","Day","Dai", "Maher", "Sewell","Somsouk","Tana"]
-var instructorListParnassus = ["Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","Singh","Terdiman","Velayos"]
-var instructorListVA = ["Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
-let allInstructors = instructorListSFGH + instructorListParnassus + instructorListVA
-
-
 class InstructorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     

@@ -50,7 +50,7 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
         findingDictionary["size"] = sizeTextField.text!
         findingDictionary["location"] = locationNames.indexOf(locationName.text!)
         findingDictionary["intervention"] = interventionList.indexOf(interventionName.text!)
-        if (plist != nil) {
+        if (plist != nil) { //create empty dictionary when do new finding first, kevin's idea to fix loop problem
             findingsArray.append(findingDictionary)
             dict[findingsKey] = findingsArray
             // dict[findingsKey]?.appendData(findingDictionary)
@@ -105,7 +105,7 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Intervention"
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 

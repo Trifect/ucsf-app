@@ -42,4 +42,8 @@ class HomeScreenViewController: UIViewController {
     
     // MARK: actions
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        newDataPlist() //this prepareForSegue is in the wrong place, occurs after next is pressed in the new form
+    }
+    
 }
