@@ -39,6 +39,8 @@ class LoginViewController: UIViewController {
         loginButton.layer.borderColor = UIColor.whiteColor().CGColor
         
         // Do any additional setup after loading the view.
+        
+        newDataPlist()
     }
 
     override func didReceiveMemoryWarning() {

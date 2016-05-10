@@ -45,7 +45,7 @@ func newDataPlist() {
     dict[instructorNameKey] = 0 //change to instructorKey later
     dict[procedureKey] = 0
     dict[procedureDateKey] = ""
-    dict[extentReachedKey] = "" //change to Int later
+    dict[extentReachedKey] = 0
     dict[insertionTimeKey] = ""
     dict[withdrawlTimeKey] = ""
     dict[prepQualityKey] = 0

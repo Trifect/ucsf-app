@@ -22,10 +22,12 @@ func submitToServer() {
     var instructorDict = serverDict["instructors"] as! [String: Int]
     var procDict = serverDict["procedures"] as! [String: Int]
     var dateDict = serverDict["dates"] as! [String : String]
-    var extentDict = serverDict["extent"] as! [String: String] //change to String: Int later
+    var extentDict = serverDict["extent"] as! [String: Int]
     var insertTimeDict = serverDict["insertTimes"] as! [String: String]
     var withdrawlTimeDict = serverDict["withdrawTimes"] as! [String: String]
     var qualityDict = serverDict["quality"] as! [String: Int]
+    var flagDict = serverDict["flags"] as! [String: Bool]
+    var procNotesDict = serverDict["procNotes"] as! [String: String]
     
     var completionDict = serverDict["completion"] as! [String: Bool]
     
@@ -35,10 +37,12 @@ func submitToServer() {
     instructorDict[docID] = dict.valueForKey("instructors") as? Int
     procDict[docID] = dict.valueForKey("procedures") as? Int
     dateDict[docID] = dict.valueForKey("procedureDate") as? String
-    extentDict[docID] = dict.valueForKey("extentReached") as? String //string to Int later please
+    extentDict[docID] = dict.valueForKey("extentReached") as? Int
     insertTimeDict[docID] = dict.valueForKey("insertionTime") as? String
     withdrawlTimeDict[docID] = dict.valueForKey("withdrawlTime") as? String
     qualityDict[docID] = dict.valueForKey("prepQuality") as? Int
+    flagDict[docID] = dict.valueForKey("flagCase") as? Bool
+    procNotesDict[docID] = dict.valueForKey("procedureNotes") as? String
     
     completionDict[docID] = true
     
@@ -58,19 +62,9 @@ func submitToServer() {
     }
     
     findingsNameDict[docID] = findingsNameArray
-    
-    /*
-     findings:
-     serverDict["findingNames"]?.addObject([docID:data.valueForKey("findings")!.valueForKey("finding")!] as NSMutableDictionary)
-     serverDict["sizes"]?.addObject([docID:data.valueForKey("findings")!.valueForKey("size")!] as NSMutableDictionary)
-     serverDict["locations"]?.addObject([docID:data.valueForKey("findings")!.valueForKey("location")!] as NSMutableDictionary)
-     serverDict["interventions"]?.addObject([docID:data.valueForKey("findings")!.valueForKey("intervention")!] as NSMutableDictionary)
-     
-     */
 }
 
-class MockServer { //all the clientside vars should be optionals???
-    
+class MockServer {
     //serverside - if not selected, set to 0 (our version of Null) and will be empty string or 0
     var hospitalList: [String] = ["SFGH", "Parnassus", "VA"]
     var instructList: [Dictionary<String, AnyObject>] = [[:]]

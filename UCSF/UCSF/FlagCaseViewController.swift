@@ -20,7 +20,12 @@ class FlagCaseViewController: UIViewController {
     @IBAction func nextButton(sender: AnyObject) {
         if (plist != nil) {
             let dict = plist!.getMutablePlistFile()!
-            dict[flagCaseKey] = flagCase.selectedSegmentIndex
+            if flagCase.selectedSegmentIndex == 1 {
+                dict[flagCaseKey] = true
+            }
+            else {
+                dict[flagCaseKey] = false
+            }
             dict[procedureNotesKey] = procedureNotes.text
             do {
                 try plist!.addValuesToPlistFile(dict)
@@ -34,11 +39,12 @@ class FlagCaseViewController: UIViewController {
         }
         
         submitToServer()
-        
+        newDataPlist()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Flag Case"
         procedureNotes.layer.cornerRadius = 5
         procedureNotes.layer.borderColor = UIColor.grayColor().CGColor
         procedureNotes.layer.borderWidth = 1

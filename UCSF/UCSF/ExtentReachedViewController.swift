@@ -13,7 +13,7 @@ class ExtentReachedViewController: UIViewController, UIPopoverPresentationContro
     @IBAction func nextButton(sender: AnyObject) {
         if (plist != nil) {
             let dict = plist!.getMutablePlistFile()!
-            dict[extentReachedKey] = extentReachedText.text!
+            dict[extentReachedKey] = extentReachedList.indexOf(extentReachedText.text!)! + 1
             dict[insertionTimeKey] = insertionTime.text!
             dict[withdrawlTimeKey] = withdrawlTime.text!
             dict[prepQualityKey] = Int(mySlider.value)

@@ -105,7 +105,7 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Intervention"
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 
