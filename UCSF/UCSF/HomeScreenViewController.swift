@@ -42,4 +42,8 @@ class HomeScreenViewController: UIViewController {
     
     // MARK: actions
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        newDataPlist() //not working, doesnt run
+    }
+    
 }

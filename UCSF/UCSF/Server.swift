@@ -12,29 +12,61 @@ import Foundation
 //mock up server
 //send info to data.json
 
-let docID = "000000001"
+let docID = "000000001" //generate new unique docID when creating new forms; new form seg not working
 
 func submitToServer() {
-    let data = readPlist()
-    serverDict["completion"]?.addObject([docID: true] as NSMutableDictionary)
-    serverDict["traineeNames"]?.addObject([docID:data.valueForKey("traineeName")!] as NSMutableDictionary)
-    serverDict["caseIDs"]?.addObject([docID:data.valueForKey("caseID")!] as NSMutableDictionary)
-    serverDict["hospitals"]?.addObject([docID:data.valueForKey("hospital")!] as NSMutableDictionary)
-    serverDict["instructors"]?.addObject([docID:data.valueForKey("instructor")!] as NSMutableDictionary)
-    serverDict["procedures"]?.addObject([docID:data.valueForKey("procedure")!] as NSMutableDictionary)
-    serverDict["dates"]?.addObject([docID:data.valueForKey("procedureDate")!] as NSMutableDictionary)
-    serverDict["extent"]?.addObject([docID:data.valueForKey("extentReached")!] as NSMutableDictionary)
-    serverDict["insertTimes"]?.addObject([docID:data.valueForKey("insertionTime")!] as NSMutableDictionary)
-    serverDict["withdrawTimes"]?.addObject([docID:data.valueForKey("withdrawlTime")!] as NSMutableDictionary)
-    serverDict["quality"]?.addObject([docID:data.valueForKey("prepQuality")!] as NSMutableDictionary)
+    
+    var traineeNamesDict = serverDict["traineeNames"] as! [String: String]
+    var caseIDict = serverDict["caseIDs"] as! [String: String]
+    var hospitalDict = serverDict["hospitals"] as! [String: Int]
+    var instructorDict = serverDict["instructors"] as! [String: Int]
+    var procDict = serverDict["procedures"] as! [String: Int]
+    var dateDict = serverDict["dates"] as! [String : String]
+    var extentDict = serverDict["extent"] as! [String: String] //change to String: Int later
+    var insertTimeDict = serverDict["insertTimes"] as! [String: String]
+    var withdrawlTimeDict = serverDict["withdrawTimes"] as! [String: String]
+    var qualityDict = serverDict["quality"] as! [String: Int]
+    
+    var completionDict = serverDict["completion"] as! [String: Bool]
+    
+    traineeNamesDict[docID] = dict.valueForKey("traineeName") as? String
+    caseIDict[docID] = dict.valueForKey("caseIDs") as? String
+    hospitalDict[docID] = dict.valueForKey("hospitals") as? Int
+    instructorDict[docID] = dict.valueForKey("instructors") as? Int
+    procDict[docID] = dict.valueForKey("procedures") as? Int
+    dateDict[docID] = dict.valueForKey("procedureDate") as? String
+    extentDict[docID] = dict.valueForKey("extentReached") as? String //string to Int later please
+    insertTimeDict[docID] = dict.valueForKey("insertionTime") as? String
+    withdrawlTimeDict[docID] = dict.valueForKey("withdrawlTime") as? String
+    qualityDict[docID] = dict.valueForKey("prepQuality") as? Int
+    
+    completionDict[docID] = true
+    
+    //let findingsArray: [AnyObject] = data.valueForKey("findings")! as! [AnyObject]
+    
+    var findingsNameDict = serverDict["findingNames"] as! [String: [Int]] //might have to make finding names as strings
+    //var interventionsDict = serverDict["interventions"] as! [String: [Int: Int]] //so that these are [String: [String: Int]]
+    //var locationDict = serverDict["locations"] as! [String: [Int: Int]]
+    //var sizeDict = serverDict["sizes"] as! [String: [Int: String]]
+    
+    var findingsNameArray: [Int] = []
+    //var interventionsArray: [Int: Int] = [:]
+    
+    let numberOfFindings: Int = dict["findings"]!.count
+    for i in 0 ..< numberOfFindings {
+        findingsNameArray.append((dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!)
+    }
+    
+    findingsNameDict[docID] = findingsNameArray
     
     /*
+     findings:
      serverDict["findingNames"]?.addObject([docID:data.valueForKey("findings")!.valueForKey("finding")!] as NSMutableDictionary)
      serverDict["sizes"]?.addObject([docID:data.valueForKey("findings")!.valueForKey("size")!] as NSMutableDictionary)
      serverDict["locations"]?.addObject([docID:data.valueForKey("findings")!.valueForKey("location")!] as NSMutableDictionary)
      serverDict["interventions"]?.addObject([docID:data.valueForKey("findings")!.valueForKey("intervention")!] as NSMutableDictionary)
      
-     */ //finding stuff
+     */
 }
 
 class MockServer { //all the clientside vars should be optionals???

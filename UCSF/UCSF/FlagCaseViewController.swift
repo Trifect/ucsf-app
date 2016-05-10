@@ -8,9 +8,6 @@
 
 import UIKit
 
-let procedureNotesKey = "procedureNotes"
-let flagCaseKey = "flagCase"
-
 class FlagCaseViewController: UIViewController {
     
     
@@ -35,7 +32,8 @@ class FlagCaseViewController: UIViewController {
         else {
             print("Unable to get Plist")
         }
-
+        
+        submitToServer()
         
     }
 
