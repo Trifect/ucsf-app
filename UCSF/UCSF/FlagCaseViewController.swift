@@ -38,8 +38,9 @@ class FlagCaseViewController: UIViewController {
             print("Unable to get Plist")
         }
         
-        submitToServer()
+        // submitToServer()
         newDataPlist()
+        self.performSegueWithIdentifier("UnwindToHome", sender: sender)
     }
 
     override func viewDidLoad() {

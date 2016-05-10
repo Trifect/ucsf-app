@@ -25,6 +25,7 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Profile"
+        self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view, typically from a nib.
         startForm.layer.cornerRadius = 5
         startForm.layer.borderWidth = 1
