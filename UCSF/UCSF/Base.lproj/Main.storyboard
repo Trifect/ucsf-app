@@ -56,6 +56,17 @@
                                     <constraint firstAttribute="width" constant="200" id="JcH-ud-WkS"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skyline" translatesAutoresizingMaskIntoConstraints="NO" id="3i4-Me-IUN">
+                                <rect key="frame" x="0.0" y="451.5" width="600" height="148.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3i4-Me-IUN" secondAttribute="height" multiplier="1900:470" id="qeL-RZ-oVa"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qeL-RZ-oVa"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.48627450979999998" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -64,14 +75,27 @@
                             <constraint firstItem="BSp-wV-N0O" firstAttribute="centerX" secondItem="wge-uJ-RuO" secondAttribute="centerX" id="DRS-om-bPm"/>
                             <constraint firstItem="BSp-wV-N0O" firstAttribute="top" secondItem="wge-uJ-RuO" secondAttribute="top" constant="80" id="H8y-Mt-dRn"/>
                             <constraint firstItem="BSp-wV-N0O" firstAttribute="top" secondItem="ZU7-tZ-dfg" secondAttribute="bottom" constant="21" id="K9h-8K-2e0"/>
+                            <constraint firstItem="3i4-Me-IUN" firstAttribute="leading" secondItem="wge-uJ-RuO" secondAttribute="leading" id="NaX-I0-f90"/>
+                            <constraint firstAttribute="trailing" secondItem="3i4-Me-IUN" secondAttribute="trailing" id="Wd1-Er-7QP"/>
+                            <constraint firstItem="3i4-Me-IUN" firstAttribute="centerX" secondItem="wge-uJ-RuO" secondAttribute="centerX" id="XzB-hq-0zm"/>
+                            <constraint firstItem="3i4-Me-IUN" firstAttribute="leading" secondItem="wge-uJ-RuO" secondAttribute="leading" id="YTf-Fx-StS"/>
                             <constraint firstItem="Px8-sb-Oys" firstAttribute="top" secondItem="lyx-Gw-sqD" secondAttribute="bottom" constant="26" id="bwq-lm-yGV"/>
+                            <constraint firstItem="3i4-Me-IUN" firstAttribute="width" secondItem="3i4-Me-IUN" secondAttribute="height" multiplier="1900:470" id="eI7-6y-SlT"/>
+                            <constraint firstAttribute="trailing" secondItem="3i4-Me-IUN" secondAttribute="trailing" id="g45-cw-EUl"/>
+                            <constraint firstItem="rgO-vv-nOr" firstAttribute="top" secondItem="3i4-Me-IUN" secondAttribute="bottom" id="lDk-4n-J5J"/>
                             <constraint firstItem="Px8-sb-Oys" firstAttribute="centerX" secondItem="wge-uJ-RuO" secondAttribute="centerX" id="q2G-K1-kTB"/>
                             <constraint firstItem="lyx-Gw-sqD" firstAttribute="centerX" secondItem="wge-uJ-RuO" secondAttribute="centerX" id="rae-wz-Jfp"/>
+                            <constraint firstItem="3i4-Me-IUN" firstAttribute="leading" secondItem="wge-uJ-RuO" secondAttribute="leading" id="vK5-Rt-R3y"/>
+                            <constraint firstAttribute="trailing" secondItem="3i4-Me-IUN" secondAttribute="trailing" id="wEZ-mT-08O"/>
                             <constraint firstItem="wzQ-dP-bGd" firstAttribute="centerX" secondItem="wge-uJ-RuO" secondAttribute="centerX" id="z19-Ow-voR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="K9h-8K-2e0"/>
+                                <exclude reference="Wd1-Er-7QP"/>
+                                <exclude reference="YTf-Fx-StS"/>
+                                <exclude reference="g45-cw-EUl"/>
+                                <exclude reference="vK5-Rt-R3y"/>
                             </mask>
                         </variation>
                     </view>

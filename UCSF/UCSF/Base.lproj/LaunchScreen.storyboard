@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +18,38 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UCSF_sig_white_RGB" translatesAutoresizingMaskIntoConstraints="NO" id="qy3-WT-yHd">
+                                <rect key="frame" x="200" y="80" width="200" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="mwF-hy-Vks"/>
+                                    <constraint firstAttribute="width" secondItem="qy3-WT-yHd" secondAttribute="height" multiplier="446:290" id="y3a-g3-Hb0"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skyline" translatesAutoresizingMaskIntoConstraints="NO" id="ayH-gY-VIg">
+                                <rect key="frame" x="0.0" y="451.5" width="600" height="148.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ayH-gY-VIg" secondAttribute="height" multiplier="1900:470" id="TFG-0v-gT7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.48627450980392156" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ayH-gY-VIg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="160" id="Ckp-Se-fbo"/>
+                            <constraint firstItem="ayH-gY-VIg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ElC-Bp-0ww"/>
+                            <constraint firstItem="ayH-gY-VIg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ErQ-sv-Rhm"/>
+                            <constraint firstItem="qy3-WT-yHd" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="80" id="Gwq-ce-Dmu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ayH-gY-VIg" secondAttribute="trailing" constant="160" id="N9N-79-dGE"/>
+                            <constraint firstItem="qy3-WT-yHd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bBY-B0-WJU"/>
+                            <constraint firstAttribute="trailing" secondItem="ayH-gY-VIg" secondAttribute="trailing" id="dZN-vV-i1V"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ayH-gY-VIg" secondAttribute="bottom" id="n4a-Aw-R2A"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ckp-Se-fbo"/>
+                                <exclude reference="N9N-79-dGE"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +57,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="UCSF_sig_white_RGB" width="446" height="290"/>
+        <image name="skyline" width="1900" height="470"/>
+    </resources>
 </document>

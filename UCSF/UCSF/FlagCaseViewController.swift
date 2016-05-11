@@ -39,7 +39,7 @@ class FlagCaseViewController: UIViewController {
         }
         
         submitToServer()
-        newDataPlist()
+        //newDataPlist()
     }
 
     override func viewDidLoad() {
