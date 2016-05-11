@@ -22,6 +22,8 @@ class HomeScreenViewController: UIViewController {
         
     }
     
+    @IBAction func unindToHomeScreen(segue: UIStoryboardSegue) {}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Profile"

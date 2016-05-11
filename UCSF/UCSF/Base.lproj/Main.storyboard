@@ -308,7 +308,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w7G-Bv-Krs"/>
-                                    <segue destination="gQs-BB-mZN" kind="show" id="0En-mv-uQb"/>
+                                    <segue destination="gQs-BB-mZN" kind="show" identifier="hospital" id="0En-mv-uQb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veh-0j-8sA">
@@ -338,6 +338,16 @@
                                     <action selector="popOver:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="RuO-7F-tGX"/>
                                 </connections>
                             </textField>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anJ-dh-71o">
+                                <rect key="frame" x="180" y="430" width="240" height="30"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0Nn-aM-rzV"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -346,8 +356,11 @@
                             <constraint firstItem="5T5-u8-cBH" firstAttribute="top" secondItem="A2Y-Sy-pWH" secondAttribute="bottom" constant="26" id="3h9-1c-aNL"/>
                             <constraint firstItem="py7-c2-ben" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="4lX-vV-67w"/>
                             <constraint firstItem="py7-c2-ben" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DYz-97-cKh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="anJ-dh-71o" secondAttribute="bottom" constant="140" id="Dc6-ZM-7IX"/>
                             <constraint firstItem="veh-0j-8sA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gh2-IS-bV2"/>
+                            <constraint firstItem="anJ-dh-71o" firstAttribute="top" secondItem="bnE-Mw-Hnq" secondAttribute="bottom" constant="26" id="K5C-sl-OuE"/>
                             <constraint firstItem="5T5-u8-cBH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TzM-BS-VUR"/>
+                            <constraint firstItem="anJ-dh-71o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WWE-fb-lkA"/>
                             <constraint firstItem="py7-c2-ben" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="fKR-6h-erh"/>
                             <constraint firstItem="A2Y-Sy-pWH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="g6B-JL-VTk"/>
                             <constraint firstItem="5T5-u8-cBH" firstAttribute="top" secondItem="veh-0j-8sA" secondAttribute="bottom" constant="5" id="m0q-lQ-q5I"/>
@@ -368,6 +381,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="caseID" destination="A2Y-Sy-pWH" id="ADP-Ti-DQJ"/>
+                        <outlet property="errorMessageField" destination="anJ-dh-71o" id="UEB-Ib-GB9"/>
                         <outlet property="hospital" destination="5T5-u8-cBH" id="PNr-Hg-NUH"/>
                         <outlet property="hospitalButton" destination="veh-0j-8sA" id="rRe-JY-p38"/>
                         <outlet property="nextButton" destination="bnE-Mw-Hnq" id="LOK-UZ-y8z"/>
@@ -816,9 +830,11 @@
                     <connections>
                         <outlet property="flagCase" destination="BeC-CD-q7a" id="Lzp-vw-Ztp"/>
                         <outlet property="procedureNotes" destination="bkt-vT-PB7" id="TWr-E7-XfU"/>
+                        <segue destination="f9K-yH-LcN" kind="unwind" identifier="unWindToHome" unwindAction="unindToHomeScreen:" id="NJV-Cz-330"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmZ-7r-Rs5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="f9K-yH-LcN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5622" y="941"/>
         </scene>

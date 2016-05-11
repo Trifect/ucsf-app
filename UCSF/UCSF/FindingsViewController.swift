@@ -54,7 +54,7 @@ class FindingsViewController: UIViewController, UIPopoverPresentationControllerD
         if (segue.identifier == "findingSegue") {
             let destination = segue.destinationViewController as! InterventionViewController
             if findingsNames.indexOf(findings.text!) != nil {
-                destination.toPass = findingsNames.indexOf(findings.text!)
+                destination.toPass = findingsNames.indexOf(findings.text!)!+1
             }
             
         }

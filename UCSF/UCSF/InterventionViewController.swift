@@ -44,8 +44,8 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
         findingsArray = dict["findings"] as! Array<[String:AnyObject]>
         findingDictionary["finding"] = toPass
         findingDictionary["size"] = sizeTextField.text!
-        findingDictionary["location"] = locationNames.indexOf(locationName.text!)
-        findingDictionary["intervention"] = interventionList.indexOf(interventionName.text!)
+        findingDictionary["location"] = locationNames.indexOf(locationName.text!)!+1
+        findingDictionary["intervention"] = interventionList.indexOf(interventionName.text!)!+1
         if (plist != nil) { //suggestion: create empty dictionary when do new finding first, kevin's idea to fix loop problem
             findingsArray.append(findingDictionary)
             dict[findingsKey] = findingsArray
@@ -57,6 +57,7 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
             }
             
             print(plist!.getValuesInPlistFile())
+            //print(dict)
         }
         else {
             print("Unable to get Plist")

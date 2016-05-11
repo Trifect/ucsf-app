@@ -58,7 +58,7 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
         let instructorName = instructorList[selectedRow]
         if (plist != nil) {
             
-            let dict = plist!.getMutablePlistFile()!
+            //let dict = plist!.getMutablePlistFile()!
             
             dict[instructorNameKey] = allInstructors.indexOf(instructorName)!+1
 

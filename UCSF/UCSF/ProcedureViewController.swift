@@ -15,7 +15,7 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
     @IBAction func nextButton(sender: AnyObject) {
         
         if (plist != nil) {
-            let dict = plist!.getMutablePlistFile()!
+            //let dict = plist!.getMutablePlistFile()!
             dict[procedureDateKey] = dateTextField.text!
             if  procedureNames.indexOf(procedureName.text!) != nil {
                 dict[procedureKey] = procedureNames.indexOf(procedureName.text!)!+1
@@ -24,18 +24,19 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
             }
             
             //3 Next we’re going to write the new value to the plist. We have to wrap this in our do-try-catch.
-            do {
-                try plist!.addValuesToPlistFile(dict)
-            } catch {
-                print(error)
-            }
+            //do {
+            //    try plist!.addValuesToPlistFile(dict)
+            //} catch {
+            //    print(error)
+            //}
             //4 Finally, print the values of the plist file. We’re grabbing a fresh copy of the plist file so you can see that the changes have been applied.
             
-            print(plist!.getValuesInPlistFile())
         }
         else {
             print("Unable to get Plist")
         }
+        
+        print(dict)
         
         if(procedureNames.indexOf(procedureName.text!) == 0) {
             performSegueWithIdentifier("colonoscopySegue", sender: self)

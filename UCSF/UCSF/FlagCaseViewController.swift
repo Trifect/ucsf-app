@@ -19,7 +19,7 @@ class FlagCaseViewController: UIViewController {
 
     @IBAction func nextButton(sender: AnyObject) {
         if (plist != nil) {
-            let dict = plist!.getMutablePlistFile()!
+            //let dict = plist!.getMutablePlistFile()!
             if flagCase.selectedSegmentIndex == 1 {
                 dict[flagCaseKey] = true
             }
@@ -39,7 +39,10 @@ class FlagCaseViewController: UIViewController {
         }
         
         submitToServer()
-        //newDataPlist()
+        newDataPlist()
+        loadFromServer(docID[0])
+        print(dict)
+        self.performSegueWithIdentifier("unWindToHome", sender: self)
     }
 
     override func viewDidLoad() {
