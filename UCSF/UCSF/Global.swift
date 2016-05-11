@@ -20,6 +20,7 @@ var instructorListParnassus = ["Dai","El-Nachef","Lee", "Mahadevan", "Ostroff","
 var instructorListVA = ["Ghassemi","Monto","Ryan", "Rongey", "Shergill"]
 let allInstructors = instructorListSFGH + instructorListParnassus + instructorListVA
 //-----------------------------------
+var interventionList = ["Biopsy","Snare Cold", "Snare Hot", "Injection Submucosa", "Injection Epi", "Injection Sclero", "Banding", "Cautery Bicap", "Cautery Argon", "Clip", "Dilation", "pH-Bravo"]
 
 let traineeNameKey = "traineeName"
 let caseIDKey = "caseID"
@@ -32,13 +33,14 @@ let withdrawlTimeKey = "withdrawlTime"
 let prepQualityKey = "prepQuality"
 let procedureNotesKey = "procedureNotes"
 let flagCaseKey = "flagCase"
+let findingsKey = "findings"
 
 let plist = Plist(name: "data")
 let dict = plist!.getMutablePlistFile()!
 
 func newDataPlist() {
     //wipe plist every time new form
-    dict["findings"] = [] //check this later, delete old findings
+    dict[findingsKey] = [] //check this later, delete old findings
     dict[traineeNameKey] = ""
     dict[caseIDKey] = ""
     dict[hospitalKey] = 0
@@ -50,7 +52,7 @@ func newDataPlist() {
     dict[withdrawlTimeKey] = ""
     dict[prepQualityKey] = 0
     dict[procedureNotesKey] = ""
-    dict[flagCaseKey] = 0 //change to Bool later
+    dict[flagCaseKey] = false
 }
 
 let serverData = Plist(name: "Server")

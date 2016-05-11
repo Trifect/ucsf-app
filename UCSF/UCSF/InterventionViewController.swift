@@ -13,10 +13,6 @@ protocol PassBackDelegate2 {
     func sendString2(myString:String)
 }
 
-let findingsKey = "findings"
-
-var interventionList = ["Biopsy","Snare Cold", "Snare Hot", "Injection Submucosa", "Injection Epi", "Injection Sclero", "Banding", "Cautery Bicap", "Cautery Argon", "Clip", "Dilation", "pH-Bravo"]
-
 class InterventionViewController: UIViewController,UIPopoverPresentationControllerDelegate,  PassBackDelegate, PassBackDelegate2 {
     
     @IBOutlet weak var locationButton: UIButton!
@@ -50,7 +46,7 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
         findingDictionary["size"] = sizeTextField.text!
         findingDictionary["location"] = locationNames.indexOf(locationName.text!)
         findingDictionary["intervention"] = interventionList.indexOf(interventionName.text!)
-        if (plist != nil) { //create empty dictionary when do new finding first, kevin's idea to fix loop problem
+        if (plist != nil) { //suggestion: create empty dictionary when do new finding first, kevin's idea to fix loop problem
             findingsArray.append(findingDictionary)
             dict[findingsKey] = findingsArray
             // dict[findingsKey]?.appendData(findingDictionary)

@@ -12,7 +12,7 @@ import Foundation
 //mock up server
 //send info to data.json
 
-let docID = "000000001" //generate new unique docID when creating new forms; new form seg not working
+let docID = ["000000001", "000000002", "000000003", "000000004", "000000005"]
 
 func submitToServer() {
     
@@ -31,37 +31,62 @@ func submitToServer() {
     
     var completionDict = serverDict["completion"] as! [String: Bool]
     
-    traineeNamesDict[docID] = dict.valueForKey("traineeName") as? String
-    caseIDict[docID] = dict.valueForKey("caseIDs") as? String
-    hospitalDict[docID] = dict.valueForKey("hospitals") as? Int
-    instructorDict[docID] = dict.valueForKey("instructors") as? Int
-    procDict[docID] = dict.valueForKey("procedures") as? Int
-    dateDict[docID] = dict.valueForKey("procedureDate") as? String
-    extentDict[docID] = dict.valueForKey("extentReached") as? Int
-    insertTimeDict[docID] = dict.valueForKey("insertionTime") as? String
-    withdrawlTimeDict[docID] = dict.valueForKey("withdrawlTime") as? String
-    qualityDict[docID] = dict.valueForKey("prepQuality") as? Int
-    flagDict[docID] = dict.valueForKey("flagCase") as? Bool
-    procNotesDict[docID] = dict.valueForKey("procedureNotes") as? String
+    traineeNamesDict[docID[0]] = dict.valueForKey("traineeName") as? String
+    caseIDict[docID[0]] = dict.valueForKey("caseIDs") as? String
+    hospitalDict[docID[0]] = dict.valueForKey("hospitals") as? Int
+    instructorDict[docID[0]] = dict.valueForKey("instructors") as? Int
+    procDict[docID[0]] = dict.valueForKey("procedures") as? Int
+    dateDict[docID[0]] = dict.valueForKey("procedureDate") as? String
+    extentDict[docID[0]] = dict.valueForKey("extentReached") as? Int
+    insertTimeDict[docID[0]] = dict.valueForKey("insertionTime") as? String
+    withdrawlTimeDict[docID[0]] = dict.valueForKey("withdrawlTime") as? String
+    qualityDict[docID[0]] = dict.valueForKey("prepQuality") as? Int
+    flagDict[docID[0]] = dict.valueForKey("flagCase") as? Bool
+    procNotesDict[docID[0]] = dict.valueForKey("procedureNotes") as? String
     
-    completionDict[docID] = true
-    
-    //let findingsArray: [AnyObject] = data.valueForKey("findings")! as! [AnyObject]
+    completionDict[docID[0]] = true
     
     var findingsNameDict = serverDict["findingNames"] as! [String: [Int]] //might have to make finding names as strings
-    //var interventionsDict = serverDict["interventions"] as! [String: [Int: Int]] //so that these are [String: [String: Int]]
-    //var locationDict = serverDict["locations"] as! [String: [Int: Int]]
-    //var sizeDict = serverDict["sizes"] as! [String: [Int: String]]
+    var interventionsDict = serverDict["interventions"] as! [String: [Int: Int]] //so that these are [String: [String: Int]]
+    var locationsDict = serverDict["locations"] as! [String: [Int: Int]]
+    var sizesDict = serverDict["sizes"] as! [String: [Int: String]]
     
     var findingsNameArray: [Int] = []
-    //var interventionsArray: [Int: Int] = [:]
+    var interventionsArray: [Int: Int] = [:]
+    var locationsArray: [Int: Int] = [:]
+    var sizesArray: [Int: String] = [:]
     
     let numberOfFindings: Int = dict["findings"]!.count
     for i in 0 ..< numberOfFindings {
-        findingsNameArray.append((dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!)
+        findingsNameArray.append((dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!) //if submit is pressed without any findings, program crashes
+        
+        interventionsArray[(dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!] = dict.valueForKey("findings")![i].valueForKey("intervention") as? Int
+        locationsArray[(dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!] = dict.valueForKey("findings")![i].valueForKey("location") as? Int
+        sizesArray[(dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!] = dict.valueForKey("findings")![i].valueForKey("size") as? String
     }
     
-    findingsNameDict[docID] = findingsNameArray
+    findingsNameDict[docID[0]] = findingsNameArray
+    interventionsDict[docID[0]] = interventionsArray
+    locationsDict[docID[0]] = locationsArray
+    sizesDict[docID[0]] = sizesArray
+    
+}
+
+func loadFromServer(uniqID: String) {
+    dict[findingsKey] = [] //this is gonna take some work...
+    
+    dict[traineeNameKey] = serverDict["traineeNames"]![uniqID]
+    dict[caseIDKey] = serverDict["caseIDs"]![uniqID]
+    dict[hospitalKey] = serverDict["hospitals"]![uniqID]
+    dict[instructorNameKey] = serverDict["instructors"]![uniqID]
+    dict[procedureKey] = serverDict["procedures"]![uniqID]
+    dict[procedureDateKey] = serverDict["dates"]![uniqID]
+    dict[extentReachedKey] = serverDict["extent"]![uniqID]
+    dict[insertionTimeKey] = serverDict["insertTimes"]![uniqID]
+    dict[withdrawlTimeKey] = serverDict["withdrawTimes"]![uniqID]
+    dict[prepQualityKey] = serverDict["quality"]![uniqID]
+    dict[procedureNotesKey] = serverDict["procNotes"]![uniqID]
+    dict[flagCaseKey] = serverDict["flags"]![uniqID]
 }
 
 class MockServer {
