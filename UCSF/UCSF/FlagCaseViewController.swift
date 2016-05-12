@@ -38,10 +38,9 @@ class FlagCaseViewController: UIViewController {
             print("Unable to get Plist")
         }
         
-        submitToServer()
+        submitToServer(docID[1])
         newDataPlist()
-//        loadFromServer(docID[0])
-//        print(dict)
+        
         self.performSegueWithIdentifier("unWindToHome", sender: self)
     }
 
@@ -61,6 +60,18 @@ class FlagCaseViewController: UIViewController {
 
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if (dict[flagCaseKey] as! Bool) == true {
+            flagCase.selectedSegmentIndex = 1
+        }
+        else {
+            flagCase.selectedSegmentIndex = 0
+        }
+        if (dict[procedureNotesKey] as! String) != "" {
+            procedureNotes.text = dict[procedureNotesKey] as? String
+        }
     }
 
     override func didReceiveMemoryWarning() {

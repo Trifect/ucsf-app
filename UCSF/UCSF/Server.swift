@@ -8,9 +8,80 @@
 
 import Foundation
 
-let docID = ["000000001", "000000002", "000000003", "000000004", "000000005"]
+let docID = ["00970379", "00611034", "00133759"]
 
-func submitToServer() { //interventions is wiping out dict data; fix asap!!!!!
+func demoPartialForm() {
+    var traineeNamesDict = serverDict["traineeNames"] as! [String: String]
+    var caseIDDict = serverDict["caseIDs"] as! [String: String]
+    var hospitalDict = serverDict["hospitals"] as! [String: Int]
+    var instructorDict = serverDict["instructors"] as! [String: Int]
+    var procDict = serverDict["procedures"] as! [String: Int]
+    var dateDict = serverDict["dates"] as! [String : String]
+    var extentDict = serverDict["extent"] as! [String: Int]
+    var insertTimeDict = serverDict["insertTimes"] as! [String: String]
+    var withdrawlTimeDict = serverDict["withdrawTimes"] as! [String: String]
+    var qualityDict = serverDict["quality"] as! [String: Int]
+    var flagDict = serverDict["flags"] as! [String: Bool]
+    var procNotesDict = serverDict["procNotes"] as! [String: String]
+    
+    var completionDict = serverDict["completion"] as! [String: Bool]
+    
+    var findingIDsDict = serverDict["findingIDs"] as! [String: [String]]
+    var findingsNameDict = serverDict["findingNames"] as! [String: [String: Int]]
+    var interventionsDict = serverDict["interventions"] as! [String: [String: Int]]
+    var locationsDict = serverDict["locations"] as! [String: [String: Int]]
+    var sizesDict = serverDict["sizes"] as! [String: [String: String]]
+    
+    var numOfFindingsDict = serverDict["findingsCounter"] as! [String: Int]
+    
+    traineeNamesDict[docID[0]] = "Jimbus"
+    caseIDDict[docID[0]] = "00016016"
+    hospitalDict[docID[0]] = 1
+    instructorDict[docID[0]] = 3
+    procDict[docID[0]] = 1
+    dateDict[docID[0]] = "5/14/2016"
+    extentDict[docID[0]] = 2
+    insertTimeDict[docID[0]] = "37"
+    withdrawlTimeDict[docID[0]] = "9"
+    qualityDict[docID[0]] = 4
+    flagDict[docID[0]] = true
+    procNotesDict[docID[0]] = "This is a partially filled form for demosntration."
+    
+    completionDict[docID[0]] = false
+    
+    findingIDsDict[docID[0]] = ["1", "2"]
+    findingsNameDict[docID[0]] = ["1":3, "2":5]
+    interventionsDict[docID[0]] = ["1":1, "2":2]
+    locationsDict[docID[0]] = ["1":4, "2":3]
+    sizesDict[docID[0]] = ["1":"10", "2":"3"]
+    
+    numOfFindingsDict[docID[0]] = 2
+    
+    serverDict["traineeNames"] = traineeNamesDict
+    serverDict["caseIDs"] = caseIDDict
+    serverDict["hospitals"] = hospitalDict
+    serverDict["instructors"] = instructorDict
+    serverDict["procedures"] = procDict
+    serverDict["dates"] = dateDict
+    serverDict["extent"] = extentDict
+    serverDict["insertTimes"] = insertTimeDict
+    serverDict["withdrawTimes"] = withdrawlTimeDict
+    serverDict["quality"] = qualityDict
+    serverDict["flags"] = flagDict
+    serverDict["procNotes"] = procNotesDict
+    
+    serverDict["completion"] = completionDict
+    
+    serverDict["findingIDs"] = findingIDsDict
+    serverDict["findingNames"] = findingsNameDict
+    serverDict["interventions"] = interventionsDict
+    serverDict["locations"] = locationsDict
+    serverDict["sizes"] = sizesDict
+    
+    serverDict["findingsCounter"] = numOfFindingsDict
+}
+
+func submitToServer(uniqID: String) { //interventions is wiping out dict data; fix asap!!!!!
     
     var traineeNamesDict = serverDict["traineeNames"] as! [String: String]
     var caseIDDict = serverDict["caseIDs"] as! [String: String]
@@ -27,50 +98,57 @@ func submitToServer() { //interventions is wiping out dict data; fix asap!!!!!
     
     var completionDict = serverDict["completion"] as! [String: Bool]
     
-    traineeNamesDict[docID[1]] = dict.valueForKey("traineeName") as? String
-    caseIDDict[docID[1]] = dict.valueForKey("caseID") as? String
-    hospitalDict[docID[1]] = dict.valueForKey("hospital") as? Int
-    instructorDict[docID[1]] = dict.valueForKey("instructor") as? Int
-    procDict[docID[1]] = dict.valueForKey("procedure") as? Int
-    dateDict[docID[1]] = dict.valueForKey("procedureDate") as? String
-    extentDict[docID[1]] = dict.valueForKey("extentReached") as? Int
-    insertTimeDict[docID[1]] = dict.valueForKey("insertionTime") as? String
-    withdrawlTimeDict[docID[1]] = dict.valueForKey("withdrawlTime") as? String
-    qualityDict[docID[1]] = dict.valueForKey("prepQuality") as? Int
-    flagDict[docID[1]] = dict.valueForKey("flagCase") as? Bool
-    procNotesDict[docID[1]] = dict.valueForKey("procedureNotes") as? String
-    
-    completionDict[docID[1]] = true
-    
-    var findingsNameDict = serverDict["findingNames"] as! [String: [Int]] //might have to make finding names as strings
-    var interventionsDict = serverDict["interventions"] as! [String: [Int: Int]] //so that these are [String: [String: Int]]
-    var locationsDict = serverDict["locations"] as! [String: [Int: Int]]
-    var sizesDict = serverDict["sizes"] as! [String: [Int: String]]
+    var findingIDsDict = serverDict["findingIDs"] as! [String: [String]]
+    var findingsNameDict = serverDict["findingNames"] as! [String: [String: Int]]
+    var interventionsDict = serverDict["interventions"] as! [String: [String: Int]]
+    var locationsDict = serverDict["locations"] as! [String: [String: Int]]
+    var sizesDict = serverDict["sizes"] as! [String: [String: String]]
     
     var numOfFindingsDict = serverDict["findingsCounter"] as! [String: Int]
     
-    var findingsNameArray: [Int] = []
-    var interventionsArray: [Int: Int] = [:]
-    var locationsArray: [Int: Int] = [:]
-    var sizesArray: [Int: String] = [:]
+    traineeNamesDict[uniqID] = dict.valueForKey("traineeName") as? String
+    caseIDDict[uniqID] = dict.valueForKey("caseID") as? String
+    hospitalDict[uniqID] = dict.valueForKey("hospital") as? Int
+    instructorDict[uniqID] = dict.valueForKey("instructor") as? Int
+    procDict[uniqID] = dict.valueForKey("procedure") as? Int
+    dateDict[uniqID] = dict.valueForKey("procedureDate") as? String
+    extentDict[uniqID] = dict.valueForKey("extentReached") as? Int
+    insertTimeDict[uniqID] = dict.valueForKey("insertionTime") as? String
+    withdrawlTimeDict[uniqID] = dict.valueForKey("withdrawlTime") as? String
+    qualityDict[uniqID] = dict.valueForKey("prepQuality") as? Int
+    flagDict[uniqID] = dict.valueForKey("flagCase") as? Bool
+    procNotesDict[uniqID] = dict.valueForKey("procedureNotes") as? String
+    
+    completionDict[uniqID] = true
+    
+    var findingsIDArray: [String] = []
+    var findingsNameArray: [String: Int] = [:]
+    var interventionsArray: [String: Int] = [:]
+    var locationsArray: [String: Int] = [:]
+    var sizesArray: [String: String] = [:]
     
     let numberOfFindings: Int = dict["findings"]!.count
+    print(numberOfFindings)
     for i in 0 ..< numberOfFindings {
-        findingsNameArray.append((dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!) //if submit is pressed without any findings, program crashes
-        
-        interventionsArray[(dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!] = dict.valueForKey("findings")![i].valueForKey("intervention") as? Int
-        locationsArray[(dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!] = dict.valueForKey("findings")![i].valueForKey("location") as? Int
-        sizesArray[(dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!] = dict.valueForKey("findings")![i].valueForKey("size") as? String
+        let findingIDKey = (dict.valueForKey("findings")![i].valueForKey("findingNumber") as? String)!
+        //let findingIDKey = String(findingNumberInt)
+        findingsIDArray.append(findingIDKey)
+        //findingsNameArray.append((dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!) //if submit is pressed without any findings, program crashes
+        findingsNameArray[findingIDKey] = dict.valueForKey("findings")![i].valueForKey("finding") as? Int
+        interventionsArray[findingIDKey] = dict.valueForKey("findings")![i].valueForKey("intervention") as? Int
+        locationsArray[findingIDKey] = dict.valueForKey("findings")![i].valueForKey("location") as? Int
+        sizesArray[findingIDKey] = dict.valueForKey("findings")![i].valueForKey("size") as? String
     } //change .valueforKey("finding") to .valueforkey("findingNumber")
     //create a new entry in server.plist that stores findingNumber as findingID:[docID:[findingNumber]]
     //change "findingNames" from "findingNames":[docID:[]] to "findingNames":[docID:[findingNumber:findingName]]
     
-    findingsNameDict[docID[1]] = findingsNameArray
-    interventionsDict[docID[1]] = interventionsArray
-    locationsDict[docID[1]] = locationsArray
-    sizesDict[docID[1]] = sizesArray
+    findingIDsDict[uniqID] = findingsIDArray
+    findingsNameDict[uniqID] = findingsNameArray
+    interventionsDict[uniqID] = interventionsArray
+    locationsDict[uniqID] = locationsArray
+    sizesDict[uniqID] = sizesArray
     
-    numOfFindingsDict[docID[1]] = numberOfFindings
+    numOfFindingsDict[uniqID] = numberOfFindings
     
     serverDict["traineeNames"] = traineeNamesDict
     serverDict["caseIDs"] = caseIDDict
@@ -86,6 +164,7 @@ func submitToServer() { //interventions is wiping out dict data; fix asap!!!!!
     serverDict["procNotes"] = procNotesDict
     serverDict["completion"] = completionDict
     
+    serverDict["findingIDs"] = findingIDsDict
     serverDict["findingNames"] = findingsNameDict
     serverDict["interventions"] = interventionsDict
     serverDict["locations"] = locationsDict
@@ -114,19 +193,32 @@ func loadFromServer(uniqID: String) {
     let counter: Int = serverDict["findingsCounter"]![uniqID] as! Int
     var findingsArray: [[String:AnyObject]] = [[:]]
     
-    let interventionDict = serverDict["interventions"]![uniqID] as! [Int:Int]
-    let locationDict = serverDict["locations"]![uniqID] as! [Int:Int]
-    let sizeDict = serverDict["sizes"]![uniqID] as! [Int:String]
+    let findingDict = serverDict["findingNames"]![uniqID] as! [String: Int]
+    let interventionDict = serverDict["interventions"]![uniqID] as! [String: Int]
+    let locationDict = serverDict["locations"]![uniqID] as! [String: Int]
+    let sizeDict = serverDict["sizes"]![uniqID] as! [String: String]
 
     for i in 0 ..< counter {
-        let findingKey = serverDict["findingNames"]![uniqID]!![i] as! Int
+        let findingKey = serverDict["findingIDs"]![uniqID]!![i] as! String
+        
+        let findingNameVal = findingDict[findingKey]
         let interventionVal = interventionDict[findingKey]
         let locationVal = locationDict[findingKey]
         let sizeVal = sizeDict[findingKey]
-        findingsArray.append(["finding":findingKey,
-                              "intervention":interventionVal!,
-                              "location":locationVal!,
-                              "size":sizeVal!])
+        if i == 0 {
+            findingsArray[i] = ["finding":findingNameVal!,
+                "intervention":interventionVal!,
+                "location":locationVal!,
+                "size":sizeVal!,
+                "findingNumber":findingKey]
+        }
+        else {
+            findingsArray.append(["finding":findingNameVal!,
+                "intervention":interventionVal!,
+                "location":locationVal!,
+                "size":sizeVal!,
+                "findingNumber":findingKey])
+        }
     }
     dict[findingsKey] = findingsArray
 }
@@ -179,8 +271,3 @@ class MockServer {
     }
     */
 }
-
-//call server class reply function --> writes to data.json --> use responseAPI methods to get data --> enter into plist
-//this occurs when clicking "in progress forms"
-
-//use POST methods when user submits form then call server class getPost function to enter data into server

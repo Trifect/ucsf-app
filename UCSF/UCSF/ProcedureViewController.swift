@@ -87,6 +87,13 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
     
     override func viewWillAppear(animated: Bool) {
         errorMessageField.hidden = true
+        
+        if (dict[procedureKey] as! Int) != 0 {
+            procedureName.text = procedureNames[(dict[procedureKey] as! Int) - 1]
+        }
+        if (dict[procedureDateKey] as! String) != "" {
+            dateTextField.text = dict[procedureDateKey] as? String
+        }
     }
     
     override func didReceiveMemoryWarning() {

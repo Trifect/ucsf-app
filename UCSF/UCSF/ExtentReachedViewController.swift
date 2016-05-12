@@ -73,6 +73,19 @@ class ExtentReachedViewController: UIViewController, UIPopoverPresentationContro
     
     override func viewWillAppear(animated: Bool) {
         errorMessageField.hidden = true
+        
+        if (dict[extentReachedKey] as! Int) != 0 {
+            extentReachedText.text = extentReachedList[(dict[extentReachedKey] as! Int) - 1]
+        }
+        if (dict[insertionTimeKey] as! String) != "" {
+            insertionTime.text = dict[insertionTimeKey] as? String
+        }
+        if (dict[withdrawlTimeKey] as! String) != "" {
+            withdrawlTime.text = dict[withdrawlTimeKey] as? String
+        }
+        if (dict[prepQualityKey] as! Float) != 3.0 {
+            mySlider.value = (dict[prepQualityKey] as? Float)!
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -74,6 +74,15 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     override func viewWillAppear(animated: Bool) {
         errorMessageField.hidden = true
+        if (dict[traineeNameKey] as! String) != "" {
+            traineeName.text = dict[traineeNameKey] as? String
+        }
+        if (dict[caseIDKey] as! String) != "" {
+            caseID.text = dict[caseIDKey] as? String
+        }
+        if (dict[hospitalKey] as! Int) != 0 {
+            hospital.text = hospitalNames[(dict[hospitalKey] as! Int) - 1]
+        }
     }
     
     //Calls this function when the tap is recognized.
@@ -164,4 +173,3 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     
 }
-

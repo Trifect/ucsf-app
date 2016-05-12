@@ -32,7 +32,10 @@ class LoginViewController: UIViewController {
     //SERVER --------------------------------------------------------------------------------------------------------||
     //---------------------------------------------------------------------------------------------------------------||
         let localserver = MockServer()
-        print("Server initialized")
+        
+        demoPartialForm()
+        
+        print(serverDict)
         
         localserver.setInstructors(instructListSFGH, Parn: instructListParn, VA: instructListVA)
     //SERVER END ----------------------------------------------------------------------------------------------------||

@@ -45,7 +45,7 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
     @IBAction func nextButton(sender: AnyObject) {
         findingsArray = dict["findings"] as! Array<[String:AnyObject]>
         findingDictionary["finding"] = toPass
-        findingDictionary["findingNumber"] = findingsArray.count+1
+        findingDictionary["findingNumber"] = String(findingsArray.count+1)
         findingDictionary["size"] = sizeTextField.text!
         if (locationNames.indexOf(locationName.text!) != nil) {
             findingDictionary["location"] = locationNames.indexOf(locationName.text!)!+1
@@ -93,7 +93,7 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
             let controller = destination.popoverPresentationController
             destination.passBackDelegate = self
             
-            segue.destinationViewController.popoverPresentationController?.sourceRect = CGRectMake(interventionButton.frame.size.width/2, interventionButton.frame.size.height, 0, 0)
+            segue.destinationViewController.popoverPresentationController?.sourceRect = CGRectMake(interventionButton.frame.size.width/2, 0, 0, 0)
             
             if controller != nil {
                 controller?.delegate = self
@@ -131,6 +131,22 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
         view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let lastIndex = dict["findings"]!.count as Int
+        if lastIndex > 0 {
+            if (dict["findings"]![lastIndex - 1]["size"] as! String) != "" {
+                sizeTextField.text = dict["findings"]![lastIndex - 1]["size"] as? String
+            }
+            if (dict["findings"]![lastIndex - 1]["location"] as! Int) != 0 {
+                locationName.text = locationNames[(dict["findings"]![lastIndex - 1]["location"] as! Int) - 1]
+            }
+            if (dict["findings"]![lastIndex - 1]["intervention"] as! Int) != 0 {
+                interventionName.text = interventionList[(dict["findings"]![lastIndex - 1]["intervention"] as! Int) - 1]
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -14,7 +14,7 @@ class FormsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var noFormsLabel: UILabel!
     
-    var forms : [String] = ["Form1", "Form2"] {
+    var forms : [String] = ["00970379", "00611034"] {
         didSet {
             if forms.count > 0 {
                 tableView.hidden = false
@@ -50,8 +50,10 @@ class FormsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedRow = indexPath.row
-        let docID = forms[selectedRow]
-        //loadFromServer(docID)
+        let selectedID = forms[selectedRow]
+        loadFromServer(selectedID)
+        //print(serverDict)
+        //loadFromServer(docID[0])
     }
 
     override func viewDidLoad() {

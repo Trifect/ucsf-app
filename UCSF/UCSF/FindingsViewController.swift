@@ -49,6 +49,13 @@ class FindingsViewController: UIViewController, UIPopoverPresentationControllerD
     
     override func viewWillAppear(animated: Bool) {
         errorMessageField.hidden = true
+        
+        let lastIndex = dict["findings"]!.count as Int
+        if lastIndex > 0 {
+            if (dict["findings"]![lastIndex - 1]["finding"] as! Int) != 0 {
+                findings.text = findingsNames[(dict["findings"]![lastIndex - 1]["finding"] as! Int) - 1]
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
