@@ -12,6 +12,8 @@ class LesionsViewController: UIViewController {
     
     @IBOutlet weak var moreLesions: UISegmentedControl!
     
+    @IBOutlet weak var nextButton: UIButton!
+    
     @IBAction func nextButton(sender: AnyObject) {
         if(moreLesions.selectedSegmentIndex == 1){
             performSegueWithIdentifier("segue1", sender: self)
@@ -25,6 +27,11 @@ class LesionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Lesions"
+        
+        nextButton.layer.cornerRadius = 5
+        nextButton.layer.borderWidth = 1
+        nextButton.layer.borderColor = UIColor(red: 0.0, green: 0.49, blue: 0.75, alpha: 1.0).CGColor
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         

@@ -13,10 +13,10 @@ class FlagCaseViewController: UIViewController {
     
     @IBOutlet weak var procedureNotes: UITextView!
     
-    
     @IBOutlet weak var flagCase: UISegmentedControl!
     
-
+    @IBOutlet weak var nextButton: UIButton!
+    
     @IBAction func nextButton(sender: AnyObject) {
         if (plist != nil) {
             //let dict = plist!.getMutablePlistFile()!
@@ -40,8 +40,8 @@ class FlagCaseViewController: UIViewController {
         
         submitToServer()
         newDataPlist()
-        loadFromServer(docID[0])
-        print(dict)
+//        loadFromServer(docID[0])
+//        print(dict)
         self.performSegueWithIdentifier("unWindToHome", sender: self)
     }
 
@@ -51,6 +51,10 @@ class FlagCaseViewController: UIViewController {
         procedureNotes.layer.cornerRadius = 5
         procedureNotes.layer.borderColor = UIColor.grayColor().CGColor
         procedureNotes.layer.borderWidth = 1
+        
+        nextButton.layer.cornerRadius = 5
+        nextButton.layer.borderWidth = 1
+        nextButton.layer.borderColor = UIColor(red: 0.0, green: 0.49, blue: 0.75, alpha: 1.0).CGColor
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)

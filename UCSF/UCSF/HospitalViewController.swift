@@ -10,8 +10,11 @@ import UIKit
 
 enum dataReaderError: ErrorType {
     case missingHospital
+    case missingPassword
+    case missingUsername
     case missingFinding
     case missingProcedure
+    case missingExtentReached
     case notFromGivenList
 }
 

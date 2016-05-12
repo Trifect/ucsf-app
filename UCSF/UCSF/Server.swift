@@ -27,20 +27,20 @@ func submitToServer() { //interventions is wiping out dict data; fix asap!!!!!
     
     var completionDict = serverDict["completion"] as! [String: Bool]
     
-    traineeNamesDict[docID[0]] = dict.valueForKey("traineeName") as? String
-    caseIDDict[docID[0]] = dict.valueForKey("caseID") as? String
-    hospitalDict[docID[0]] = dict.valueForKey("hospital") as? Int
-    instructorDict[docID[0]] = dict.valueForKey("instructor") as? Int
-    procDict[docID[0]] = dict.valueForKey("procedure") as? Int
-    dateDict[docID[0]] = dict.valueForKey("procedureDate") as? String
-    extentDict[docID[0]] = dict.valueForKey("extentReached") as? Int
-    insertTimeDict[docID[0]] = dict.valueForKey("insertionTime") as? String
-    withdrawlTimeDict[docID[0]] = dict.valueForKey("withdrawlTime") as? String
-    qualityDict[docID[0]] = dict.valueForKey("prepQuality") as? Int
-    flagDict[docID[0]] = dict.valueForKey("flagCase") as? Bool
-    procNotesDict[docID[0]] = dict.valueForKey("procedureNotes") as? String
+    traineeNamesDict[docID[1]] = dict.valueForKey("traineeName") as? String
+    caseIDDict[docID[1]] = dict.valueForKey("caseID") as? String
+    hospitalDict[docID[1]] = dict.valueForKey("hospital") as? Int
+    instructorDict[docID[1]] = dict.valueForKey("instructor") as? Int
+    procDict[docID[1]] = dict.valueForKey("procedure") as? Int
+    dateDict[docID[1]] = dict.valueForKey("procedureDate") as? String
+    extentDict[docID[1]] = dict.valueForKey("extentReached") as? Int
+    insertTimeDict[docID[1]] = dict.valueForKey("insertionTime") as? String
+    withdrawlTimeDict[docID[1]] = dict.valueForKey("withdrawlTime") as? String
+    qualityDict[docID[1]] = dict.valueForKey("prepQuality") as? Int
+    flagDict[docID[1]] = dict.valueForKey("flagCase") as? Bool
+    procNotesDict[docID[1]] = dict.valueForKey("procedureNotes") as? String
     
-    completionDict[docID[0]] = true
+    completionDict[docID[1]] = true
     
     var findingsNameDict = serverDict["findingNames"] as! [String: [Int]] //might have to make finding names as strings
     var interventionsDict = serverDict["interventions"] as! [String: [Int: Int]] //so that these are [String: [String: Int]]
@@ -61,14 +61,16 @@ func submitToServer() { //interventions is wiping out dict data; fix asap!!!!!
         interventionsArray[(dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!] = dict.valueForKey("findings")![i].valueForKey("intervention") as? Int
         locationsArray[(dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!] = dict.valueForKey("findings")![i].valueForKey("location") as? Int
         sizesArray[(dict.valueForKey("findings")![i].valueForKey("finding") as? Int)!] = dict.valueForKey("findings")![i].valueForKey("size") as? String
-    }
+    } //change .valueforKey("finding") to .valueforkey("findingNumber")
+    //create a new entry in server.plist that stores findingNumber as findingID:[docID:[findingNumber]]
+    //change "findingNames" from "findingNames":[docID:[]] to "findingNames":[docID:[findingNumber:findingName]]
     
-    findingsNameDict[docID[0]] = findingsNameArray
-    interventionsDict[docID[0]] = interventionsArray
-    locationsDict[docID[0]] = locationsArray
-    sizesDict[docID[0]] = sizesArray
+    findingsNameDict[docID[1]] = findingsNameArray
+    interventionsDict[docID[1]] = interventionsArray
+    locationsDict[docID[1]] = locationsArray
+    sizesDict[docID[1]] = sizesArray
     
-    numOfFindingsDict[docID[0]] = numberOfFindings
+    numOfFindingsDict[docID[1]] = numberOfFindings
     
     serverDict["traineeNames"] = traineeNamesDict
     serverDict["caseIDs"] = caseIDDict
