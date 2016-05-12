@@ -8,6 +8,16 @@
 
 import UIKit
 
+enum dataReaderError: ErrorType {
+    case missingHospital
+    case missingPassword
+    case missingUsername
+    case missingFinding
+    case missingProcedure
+    case missingExtentReached
+    case notFromGivenList
+}
+
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, PassBackDelegate {
     
     // MARK: properties
@@ -17,36 +27,21 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     @IBOutlet weak var traineeName: UITextField!
     @IBOutlet weak var caseID: UITextField!
     @IBOutlet weak var hospital: UITextField!
+    @IBOutlet weak var errorMessageField: UITextView!
+    
+    func chosenHospital(input: UITextField) throws -> Int {
+        if input.text! == "" {
+            throw dataReaderError.missingHospital
+        }
+        guard let hospitalChoice = hospitalNames.indexOf(input.text!) else {
+            throw dataReaderError.notFromGivenList
+        }
+        return hospitalChoice+1
+    }
     
     @IBAction func nextButton(sender: UIButton!) {
         
-        print(traineeName.text!)
-        // 1 First we check to make sure we can initialize a Plist struct with our “data” plist. If we can, then we’ll perform some actions.
-        if (plist != nil) {
-            //2 Get the mutable version of the file. Here we are force unwrapping the file. In production you should make sure this will not error. After we get our mutable dictionary, we can add a new value to it. Using our keys, we add a value to the NSMutableDictionary.
-            
-            dict[traineeNameKey] = traineeName.text!
-            dict[caseIDKey] = caseID.text!
-            
-            if hospitalNames.indexOf(hospital.text!) != nil {
-                dict[hospitalKey] = hospitalNames.indexOf(hospital.text!)!+1
-            } else {
-                dict[hospitalKey] = 0
-            }
-            
-            //3 Next we’re going to write the new value to the plist. We have to wrap this in our do-try-catch.
-            do {
-                try plist!.addValuesToPlistFile(dict)
-            } catch {
-                print(error)
-            }
-            //4 Finally, print the values of the plist file. We’re grabbing a fresh copy of the plist file so you can see that the changes have been applied.
-            
-            print(plist!.getValuesInPlistFile())
-        }
-        else {
-            print("Unable to get Plist")
-        }
+        
     }
    
     override func viewDidLoad() {
@@ -77,6 +72,19 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        errorMessageField.hidden = true
+        if (dict[traineeNameKey] as! String) != "" {
+            traineeName.text = dict[traineeNameKey] as? String
+        }
+        if (dict[caseIDKey] as! String) != "" {
+            caseID.text = dict[caseIDKey] as? String
+        }
+        if (dict[hospitalKey] as! Int) != 0 {
+            hospital.text = hospitalNames[(dict[hospitalKey] as! Int) - 1]
+        }
+    }
+    
     //Calls this function when the tap is recognized.
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -90,7 +98,6 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     // MARK: actions
     
     @IBAction func popOver(sender: AnyObject) {
-        self.performSegueWithIdentifier("showView", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -108,6 +115,53 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         }
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "hospital" {
+            // 1 First we check to make sure we can initialize a Plist struct with our “data” plist. If we can, then we’ll perform some actions.
+            if (plist != nil) {
+                //2 Get the mutable version of the file. Here we are force unwrapping the file. In production you should make sure this will not error. After we get our mutable dictionary, we can add a new value to it. Using our keys, we add a value to the NSMutableDictionary.
+                
+                dict[traineeNameKey] = traineeName.text!
+                dict[caseIDKey] = caseID.text!
+                
+                var errorMessage: String = ""
+                
+                do {
+                    try dict[hospitalKey] = chosenHospital(hospital)
+                } catch dataReaderError.missingHospital {
+                    errorMessage = "Please select a hospital"
+                } catch dataReaderError.notFromGivenList {
+                    errorMessage = "Please make selections from the given list"
+                } catch {
+                    errorMessage = "Something went wrong!"
+                }
+                
+                if errorMessage != "" {
+                    errorMessageField.text = errorMessage
+                    errorMessageField.textColor = UIColor.redColor()
+                    errorMessageField.textAlignment = NSTextAlignment.Center
+                    errorMessageField.hidden = false
+                    return false
+                }
+                
+                //3 Next we’re going to write the new value to the plist. We have to wrap this in our do-try-catch.
+                do {
+                    try plist!.addValuesToPlistFile(dict)
+                } catch {
+                    print(error)
+                    return false
+                }
+                //4 Finally, print the values of the plist file. We’re grabbing a fresh copy of the plist file so you can see that the changes have been applied.
+                
+                print(plist!.getValuesInPlistFile())
+            }
+            else {
+                print("Unable to get Plist")
+            }
+        }
+        return true
+    }
+    
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
     }
@@ -119,4 +173,3 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     
 }
-

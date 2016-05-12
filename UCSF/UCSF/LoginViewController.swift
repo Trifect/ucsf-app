@@ -16,11 +16,26 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var errorMessageField: UITextView!
+    
+    func inputedUserInfo(username: UITextField, password: UITextField) throws {
+        if username.text! == "" {
+            throw dataReaderError.missingUsername
+        }
+        if password.text! == "" {
+            throw dataReaderError.missingPassword
+        }
+    }
+    
+    
     override func viewDidLoad() {
     //SERVER --------------------------------------------------------------------------------------------------------||
     //---------------------------------------------------------------------------------------------------------------||
         let localserver = MockServer()
-        print("Server initialized")
+        
+        demoPartialForm()
+        
+        print(serverDict)
         
         localserver.setInstructors(instructListSFGH, Parn: instructListParn, VA: instructListVA)
     //SERVER END ----------------------------------------------------------------------------------------------------||
@@ -41,6 +56,30 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         newDataPlist()
+    }
+
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        
+        if identifier == "login" {
+            var errorMessage: String = ""
+            do {
+                try inputedUserInfo(username,password: password)
+            } catch dataReaderError.missingUsername {
+                errorMessage = "Please enter your username"
+            } catch dataReaderError.missingPassword {
+                errorMessage = "Please enter your password"
+            } catch {
+                errorMessage = "Login failed"
+            }
+            if errorMessage != "" {
+                errorMessageField.text = errorMessage
+                errorMessageField.textAlignment = NSTextAlignment.Center
+                errorMessageField.textColor = UIColor.orangeColor()
+                errorMessageField.hidden = false
+                return false
+            }
+        }
+        return true
     }
 
     override func didReceiveMemoryWarning() {

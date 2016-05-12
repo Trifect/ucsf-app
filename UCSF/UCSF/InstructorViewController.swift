@@ -44,21 +44,22 @@ class InstructorViewController: UIViewController, UITableViewDelegate, UITableVi
         let iCell = self.instructorTableView.dequeueReusableCellWithIdentifier("iCell", forIndexPath: indexPath) as! instructorCell
         
         iCell.instructorName.text = instructorList[indexPath.row]
-        //let myGray: UIColor = UIColor.init(colorLiteralRed: 242, green: 242, blue: 242, alpha: 1.0)
-        //if (indexPath.row % 2 == 0) {
-        //iCell.backgroundColor = myGray
+        //let myGray: UIColor = UIColor.init(colorLiteralRed: 208, green: 208, blue: 208, alpha: 1.0)
+        if (indexPath.row == (dict[instructorNameKey] as! Int - 1)) {
+            iCell.backgroundColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
             
-        //}
+        }
         return iCell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // this deals with saving into plist from selected cell
         let selectedRow = indexPath.row
+        
         let instructorName = instructorList[selectedRow]
         if (plist != nil) {
             
-            let dict = plist!.getMutablePlistFile()!
+            //let dict = plist!.getMutablePlistFile()!
             
             dict[instructorNameKey] = allInstructors.indexOf(instructorName)!+1
 

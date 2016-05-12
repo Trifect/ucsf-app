@@ -13,13 +13,13 @@ class FlagCaseViewController: UIViewController {
     
     @IBOutlet weak var procedureNotes: UITextView!
     
-    
     @IBOutlet weak var flagCase: UISegmentedControl!
     
-
+    @IBOutlet weak var nextButton: UIButton!
+    
     @IBAction func nextButton(sender: AnyObject) {
         if (plist != nil) {
-            let dict = plist!.getMutablePlistFile()!
+            //let dict = plist!.getMutablePlistFile()!
             if flagCase.selectedSegmentIndex == 1 {
                 dict[flagCaseKey] = true
             }
@@ -38,8 +38,10 @@ class FlagCaseViewController: UIViewController {
             print("Unable to get Plist")
         }
         
-        submitToServer()
+        submitToServer(docID[1])
         newDataPlist()
+        
+        self.performSegueWithIdentifier("unWindToHome", sender: self)
     }
 
     override func viewDidLoad() {
@@ -49,11 +51,27 @@ class FlagCaseViewController: UIViewController {
         procedureNotes.layer.borderColor = UIColor.grayColor().CGColor
         procedureNotes.layer.borderWidth = 1
         
+        nextButton.layer.cornerRadius = 5
+        nextButton.layer.borderWidth = 1
+        nextButton.layer.borderColor = UIColor(red: 0.0, green: 0.49, blue: 0.75, alpha: 1.0).CGColor
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if (dict[flagCaseKey] as! Bool) == true {
+            flagCase.selectedSegmentIndex = 1
+        }
+        else {
+            flagCase.selectedSegmentIndex = 0
+        }
+        if (dict[procedureNotesKey] as! String) != "" {
+            procedureNotes.text = dict[procedureNotesKey] as? String
+        }
     }
 
     override func didReceiveMemoryWarning() {

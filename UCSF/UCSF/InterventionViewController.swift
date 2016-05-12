@@ -13,10 +13,6 @@ protocol PassBackDelegate2 {
     func sendString2(myString:String)
 }
 
-let findingsKey = "findings"
-
-var interventionList = ["Biopsy","Snare Cold", "Snare Hot", "Injection Submucosa", "Injection Epi", "Injection Sclero", "Banding", "Cautery Bicap", "Cautery Argon", "Clip", "Dilation", "pH-Bravo"]
-
 class InterventionViewController: UIViewController,UIPopoverPresentationControllerDelegate,  PassBackDelegate, PassBackDelegate2 {
     
     @IBOutlet weak var locationButton: UIButton!
@@ -28,6 +24,8 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
     @IBOutlet weak var sizeTextField: UITextField!
     
     @IBOutlet weak var interventionButton: UIButton!
+    
+    @IBOutlet weak var nextButton: UIButton!
     
     @IBAction func popOver(sender: AnyObject) {
         self.performSegueWithIdentifier("showLocationView", sender: self)
@@ -47,10 +45,19 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
     @IBAction func nextButton(sender: AnyObject) {
         findingsArray = dict["findings"] as! Array<[String:AnyObject]>
         findingDictionary["finding"] = toPass
+        findingDictionary["findingNumber"] = String(findingsArray.count+1)
         findingDictionary["size"] = sizeTextField.text!
-        findingDictionary["location"] = locationNames.indexOf(locationName.text!)
-        findingDictionary["intervention"] = interventionList.indexOf(interventionName.text!)
-        if (plist != nil) { //create empty dictionary when do new finding first, kevin's idea to fix loop problem
+        if (locationNames.indexOf(locationName.text!) != nil) {
+            findingDictionary["location"] = locationNames.indexOf(locationName.text!)!+1
+        } else {
+            findingDictionary["location"] = 0
+        }
+        if (interventionList.indexOf(interventionName.text!) != nil) {
+            findingDictionary["intervention"] = interventionList.indexOf(interventionName.text!)!+1
+        } else {
+            findingDictionary["intervention"] = 0
+        }
+        if (plist != nil) { //suggestion: create empty dictionary when do new finding first, kevin's idea to fix loop problem
             findingsArray.append(findingDictionary)
             dict[findingsKey] = findingsArray
             // dict[findingsKey]?.appendData(findingDictionary)
@@ -61,6 +68,7 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
             }
             
             print(plist!.getValuesInPlistFile())
+            //print(dict)
         }
         else {
             print("Unable to get Plist")
@@ -73,7 +81,7 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
             let controller = destination.popoverPresentationController
             destination.passBackDelegate = self
             
-            segue.destinationViewController.popoverPresentationController?.sourceRect = CGRectMake(locationButton.frame.size.width/2, 0, 0, 0)
+            segue.destinationViewController.popoverPresentationController?.sourceRect = CGRectMake(locationButton.frame.size.width/2, locationButton.frame.size.height, 0, 0)
             
             if controller != nil {
                 controller?.delegate = self
@@ -106,10 +114,39 @@ class InterventionViewController: UIViewController,UIPopoverPresentationControll
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Intervention"
+        
+        locationButton.layer.cornerRadius = 5
+        locationButton.layer.borderWidth = 1
+        locationButton.layer.borderColor = UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0).CGColor
+        
+        interventionButton.layer.cornerRadius = 5
+        interventionButton.layer.borderWidth = 1
+        interventionButton.layer.borderColor = UIColor(red:0.0, green:0.49, blue:0.75, alpha:1.0).CGColor
+        
+        nextButton.layer.cornerRadius = 5
+        nextButton.layer.borderWidth = 1
+        nextButton.layer.borderColor = UIColor(red: 0.0, green: 0.49, blue: 0.75, alpha: 1.0).CGColor
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let lastIndex = dict["findings"]!.count as Int
+        if lastIndex > 0 {
+            if (dict["findings"]![lastIndex - 1]["size"] as! String) != "" {
+                sizeTextField.text = dict["findings"]![lastIndex - 1]["size"] as? String
+            }
+            if (dict["findings"]![lastIndex - 1]["location"] as! Int) != 0 {
+                locationName.text = locationNames[(dict["findings"]![lastIndex - 1]["location"] as! Int) - 1]
+            }
+            if (dict["findings"]![lastIndex - 1]["intervention"] as! Int) != 0 {
+                interventionName.text = interventionList[(dict["findings"]![lastIndex - 1]["intervention"] as! Int) - 1]
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -16,11 +16,15 @@ class HomeScreenViewController: UIViewController {
     
     @IBOutlet weak var progressForms: UIButton!
     
+    @IBAction func loadForm(sender: AnyObject) {
+        //loadFromServer(docID[0])
+    }
     
     @IBAction func newFormButton(sender: AnyObject) {
-        
-        
+        newDataPlist()
     }
+    
+    @IBAction func unindToHomeScreen(segue: UIStoryboardSegue) {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +45,5 @@ class HomeScreenViewController: UIViewController {
     }
     
     // MARK: actions
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        newDataPlist() //this prepareForSegue is in the wrong place, occurs after next is pressed in the new form
-    }
     
 }

@@ -11,39 +11,28 @@ import UIKit
 class ProcedureViewController: UIViewController, UIPopoverPresentationControllerDelegate, PassBackDelegate {
     
     @IBOutlet weak var procedureButton: UIButton!
+    
+    @IBOutlet weak var errorMessageField: UITextView!
+    
+    func chosenProcedure(input: UITextField) throws -> Int {
+        if input.text! == "" {
+            throw dataReaderError.missingProcedure
+        }
+        guard let procedureChoice = procedureNames.indexOf(input.text!) else {
+            throw dataReaderError.notFromGivenList
+        }
+        return procedureChoice+1
+    }
 
     @IBAction func nextButton(sender: AnyObject) {
-        
-        if (plist != nil) {
-            let dict = plist!.getMutablePlistFile()!
-            dict[procedureDateKey] = dateTextField.text!
-            if  procedureNames.indexOf(procedureName.text!) != nil {
-                dict[procedureKey] = procedureNames.indexOf(procedureName.text!)!+1
-            } else {
-                dict[procedureKey] = 0
-            }
-            
-            //3 Next we’re going to write the new value to the plist. We have to wrap this in our do-try-catch.
-            do {
-                try plist!.addValuesToPlistFile(dict)
-            } catch {
-                print(error)
-            }
-            //4 Finally, print the values of the plist file. We’re grabbing a fresh copy of the plist file so you can see that the changes have been applied.
-            
-            print(plist!.getValuesInPlistFile())
-        }
-        else {
-            print("Unable to get Plist")
-        }
-        
         if(procedureNames.indexOf(procedureName.text!) == 0) {
-            performSegueWithIdentifier("colonoscopySegue", sender: self)
+            //performSegueWithIdentifier("colonoscopySegue", sender: self)
+            shouldPerformSegueWithIdentifier("colonoscopySegue", sender: self)
         }
         else {
-            performSegueWithIdentifier("EGDSegue", sender: self)
+           // performSegueWithIdentifier("EGDSegue", sender: self)
+            shouldPerformSegueWithIdentifier("EGDSegue", sender: self)
         }
-        
     }
     
     @IBOutlet weak var nextButton: UIButton!
@@ -79,10 +68,10 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
         self.title = "Procedure"
         nextButton.layer.cornerRadius = 5
         nextButton.layer.borderWidth = 1
-        nextButton.layer.borderColor = UIColor.whiteColor().CGColor
+        nextButton.layer.borderColor = UIColor(red: 0.0, green: 0.49, blue: 0.75, alpha: 1.0).CGColor
         procedureButton.layer.cornerRadius = 5
         procedureButton.layer.borderWidth = 1
-        procedureButton.layer.borderColor = UIColor.whiteColor().CGColor
+        procedureButton.layer.borderColor = UIColor(red: 0.0, green: 0.49, blue: 0.75, alpha: 1.0).CGColor
         
         // Sets the placeholder text color to white.
         //procedureName.attributedPlaceholder = NSAttributedString(string: "Procedure", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
@@ -96,6 +85,17 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        errorMessageField.hidden = true
+        
+        if (dict[procedureKey] as! Int) != 0 {
+            procedureName.text = procedureNames[(dict[procedureKey] as! Int) - 1]
+        }
+        if (dict[procedureDateKey] as! String) != "" {
+            dateTextField.text = dict[procedureDateKey] as? String
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -103,7 +103,7 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
     
 
     @IBAction func popOver(sender: AnyObject) {
-        self.performSegueWithIdentifier("showView2", sender: self)
+        //self.performSegueWithIdentifier("showView2", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -119,6 +119,50 @@ class ProcedureViewController: UIViewController, UIPopoverPresentationController
                 controller?.delegate = self
             }
         }
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "colonoscopySegue" || identifier == "EGDSegue" {
+            if (plist != nil) {
+                //let dict = plist!.getMutablePlistFile()!
+                dict[procedureDateKey] = dateTextField.text!
+                var errorMessage: String = ""
+                do {
+                    try dict[procedureKey] = chosenProcedure(procedureName)
+                } catch dataReaderError.missingProcedure {
+                    errorMessage = "Please select a procedure"
+                } catch dataReaderError.notFromGivenList {
+                    errorMessage = "Please make a selection from the given list"
+                } catch {
+                    errorMessage = "Something went wrong!"
+                }
+                
+                if errorMessage != ""  {
+                    errorMessageField.text = errorMessage
+                    errorMessageField.textColor = UIColor.redColor()
+                    errorMessageField.textAlignment = NSTextAlignment.Center
+                    errorMessageField.hidden = false
+                    return false
+                }
+                
+                //3 Next we’re going to write the new value to the plist. We have to wrap this in our do-try-catch.
+                do {
+                    try plist!.addValuesToPlistFile(dict)
+                } catch {
+                    print(error)
+                    
+                }
+                //4 Finally, print the values of the plist file. We’re grabbing a fresh copy of the plist file so you can see that the changes have been applied.
+                
+            }
+            else {
+                print("Unable to get Plist")
+                return false
+            }
+            performSegueWithIdentifier(identifier, sender: sender)
+        }
+        
+        return true
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {

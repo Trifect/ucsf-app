@@ -14,7 +14,7 @@ class FormsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var noFormsLabel: UILabel!
     
-    var forms : [String] = ["Form1", "Form2", "Form3", "Form4", "Form5", "Form6", "Form7", "Form8"] {
+    var forms : [String] = ["00970379", "00611034"] {
         didSet {
             if forms.count > 0 {
                 tableView.hidden = false
@@ -46,6 +46,14 @@ class FormsViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
         }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedRow = indexPath.row
+        let selectedID = forms[selectedRow]
+        loadFromServer(selectedID)
+        //print(serverDict)
+        //loadFromServer(docID[0])
     }
 
     override func viewDidLoad() {
